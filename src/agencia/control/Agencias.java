@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 import agencia.entity.Agencia;
-import agencia.entity.AgenciaInexistenteException;
+import entity.InexistenteException;
 
 
 public class Agencias {
@@ -20,7 +20,7 @@ public class Agencias {
 		agencias.add(agencia);
 	}
 
-	public Agencia buscar(int codigoAgencia) throws AgenciaInexistenteException{
+	public Agencia buscar(int codigoAgencia) throws InexistenteException{
 		Agencia buscado=null;
 		Agencia agencia;
 
@@ -31,13 +31,13 @@ public class Agencias {
 			}
 		}
 		if(buscado==null) {
-			throw new AgenciaInexistenteException();
+			throw new InexistenteException();
 		}
 		return buscado;
 	}
 
 
-	public void eliminar(int codigoAgencia) throws AgenciaInexistenteException{
+	public void eliminar(int codigoAgencia) throws InexistenteException{
 		Agencia agencia=buscar(codigoAgencia);
 
 		agencias.remove(agencia);

@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import agencia.control.Agencias;
 import agencia.entity.Agencia;
-import agencia.entity.AgenciaInexistenteException;
+import entity.InexistenteException;
 import view.InputTypes;
 
 public class AgenciasIO {
@@ -24,7 +24,7 @@ public class AgenciasIO {
 		agencias.añadir(agencia);
 	}
 
-	public void eliminar() throws AgenciaInexistenteException{
+	public void eliminar() throws InexistenteException{
 		int codigoAgencia;
 		codigoAgencia = InputTypes.readInt(scanner, "Código de la agencia: ");
 		agencias.eliminar(codigoAgencia);
