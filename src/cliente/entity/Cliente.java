@@ -66,7 +66,4 @@ public class Cliente {
 		}
 		return respuesta;
 	}
-	
-	
-
 }
