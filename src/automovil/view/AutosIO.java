@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 import automovil.control.Autos;
+import automovil.entity.Auto;
 import view.InputTypes;
 
 public class AutosIO {
@@ -16,14 +17,14 @@ public class AutosIO {
 		this.scanner= scanner;
 	}
 	
-	public void añadir() {
+	public void aÃ±adir() {
 		Auto auto = AutoIO.ingresar(scanner);
-		autos.añadir(auto);
+		autos.aÃ±adir(auto);
 	}
 	
 	public void eliminar() throws InexistenteException {
 		int codAuto;
-		codAuto= InputTypes.readInt(scanner, "Código de Auto: ");
+		codAuto= InputTypes.readInt(scanner, "Cï¿½digo de Auto: ");
 		autos.eliminar(codAuto);
 	}
 	
