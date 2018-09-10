@@ -13,7 +13,7 @@ public class Autos {
 	public Autos() {
 		autos = new HashSet<Auto>();
 	}
-	public void añadir(Auto auto){
+	public void aÃ±adir(Auto auto){
 		autos.add(auto);
 	}
 	
