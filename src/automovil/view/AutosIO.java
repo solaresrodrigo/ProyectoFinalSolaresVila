@@ -21,7 +21,7 @@ public class AutosIO {
 		autos.añadir(auto);
 	}
 	
-	public void eliminar() {
+	public void eliminar() throws InexistenteException {
 		int codAuto;
 		codAuto= InputTypes.readInt(scanner, "Código de Auto: ");
 		autos.eliminar(codAuto);

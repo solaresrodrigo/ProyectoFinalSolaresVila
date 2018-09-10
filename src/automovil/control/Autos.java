@@ -17,12 +17,12 @@ public class Autos {
 		autos.add(auto);
 	}
 	
-	public void eliminar(int codAuto) {
+	public void eliminar(int codAuto) throws InexistenteException {
 		Auto auto=buscar(codAuto);
 		autos.remove(auto);
 	}
 	
-	public Auto buscar(int codAuto) {
+	public Auto buscar(int codAuto) throws InexistenteException {
 		Auto buscando= null;
 		Auto auto;
 		
@@ -33,7 +33,7 @@ public class Autos {
 			}
 		}
 		if(buscando == null) {
-			
+			throw new InexistenteException();
 		}
 		return buscando;
 	}
