@@ -51,6 +51,11 @@ public class Taller {
 		}
 		return respuesta;
 	}
+
+	public String toString() {
+		return "Taller [codTaller=" + codTaller + ", direccion=" + direccion + ", servicios=" + servicios
+				+ ", capacidad=" + capacidad + "Automoviles ]";
+	}
 	
 	
 	
