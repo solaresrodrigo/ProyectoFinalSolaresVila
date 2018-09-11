@@ -8,11 +8,11 @@ import view.InputTypes;
 public class DevolucionIO {
 
 	public static Devolucion ingresar(Scanner scanner) {
-		int codDevolucion = InputTypes.readInt(scanner, "Código de la Devolución: ");
-		String daños = InputTypes.readString(scanner, "Daños en el automovil: ");
-		int codTaller = InputTypes.readInt(scanner, "Código del Taller: ");
+		int codDevolucion = InputTypes.readInt(scanner, "Cï¿½digo de la Devoluciï¿½n: ");
+		String daÃ±os = InputTypes.readString(scanner, "Daï¿½os en el automovil: ");
+		int codTaller = InputTypes.readInt(scanner, "Cï¿½digo del Taller: ");
 
-		return new Devolucion(codDevolucion, codTaller, daños);
+		return new Devolucion(codDevolucion, codTaller, daÃ±os);
 
 	}
 

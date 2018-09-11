@@ -19,14 +19,14 @@ public class DevolucionesIO {
 		this.scanner = scanner;
 	}
 
-	public void añadir() {
+	public void aÃ±adir() {
 		Devolucion devolucion = DevolucionIO.ingresar(scanner);
-		devoluciones.añadir(devolucion);
+		devoluciones.aÃ±adir(devolucion);
 	}
 
 	public void eliminar() throws InexistenteException{
 		int codDevolucion;
-		codDevolucion = InputTypes.readInt(scanner, "Código de la Devolución: ");
+		codDevolucion = InputTypes.readInt(scanner, "Cï¿½digo de la Devoluciï¿½n: ");
 		devoluciones.eliminar(codDevolucion);
 	}
 

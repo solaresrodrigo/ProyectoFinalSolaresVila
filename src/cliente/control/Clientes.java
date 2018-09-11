@@ -14,7 +14,7 @@ public class Clientes {
 		clientes = new HashSet<Cliente>();
 	}
 	
-	public void añadir(Cliente cliente) {
+	public void aÃ±adir(Cliente cliente) {
 
 		clientes.add(cliente);
 	}

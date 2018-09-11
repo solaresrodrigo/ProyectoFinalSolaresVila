@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import view.InputTypes;
 
-public class Menú {
+public class MenÃº {
 	
 	public static int encabezado(Scanner scanner) {
 		int opcion;

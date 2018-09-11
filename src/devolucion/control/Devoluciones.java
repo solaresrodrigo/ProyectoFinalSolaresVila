@@ -13,7 +13,7 @@ public class Devoluciones {
 		devoluciones = new HashSet<Devolucion>();
 	}
 
-	public void añadir(Devolucion devolucion) {
+	public void aÃ±adir(Devolucion devolucion) {
 
 		devoluciones.add(devolucion);
 	}

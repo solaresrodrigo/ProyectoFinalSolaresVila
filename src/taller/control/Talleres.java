@@ -14,7 +14,7 @@ public class Talleres {
 		talleres = new HashSet<Taller>();
 	}
 
-	public void añadir(Taller taller) {
+	public void aÃ±adir(Taller taller) {
 
 		talleres.add(taller);
 	}

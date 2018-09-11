@@ -1,9 +1,12 @@
-/view/
 /administrativo/
 /agencia/
 /automovil/
 /cliente/
+/devolucion/
+/entity/
 /mecanico/
+/module-info.class
 /servicio/
 /taller/
-/devolucion/
+/view/
+/renta/

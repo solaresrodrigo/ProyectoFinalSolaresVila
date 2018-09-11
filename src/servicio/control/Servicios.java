@@ -14,7 +14,7 @@ public class Servicios {
 		servicios = new HashSet<Servicio>();
 	}
 	
-	public void añadir(Servicio servicio) {
+	public void aÃ±adir(Servicio servicio) {
 
 		servicios.add(servicio);
 	}

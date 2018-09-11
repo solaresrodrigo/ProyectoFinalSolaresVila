@@ -4,11 +4,11 @@ public class Devolucion {
 
 	private int codDevolucion;
 	private int codTaller;
-	private String daños;
-	public Devolucion(int codDevolucion, int codTaller, String daños) {
+	private String daÃ±os;
+	public Devolucion(int codDevolucion, int codTaller, String daÃ±os) {
 		this.codDevolucion = codDevolucion;
 		this.codTaller = codTaller;
-		this.daños = daños;
+		this.daÃ±os = daÃ±os;
 	}
 	public Integer getCodDevolucion() {
 		return codDevolucion;
@@ -22,11 +22,11 @@ public class Devolucion {
 	public void setCodTaller(int codTaller) {
 		this.codTaller = codTaller;
 	}
-	public String getDaños() {
-		return daños;
+	public String getDaÃ±os() {
+		return daÃ±os;
 	}
-	public void setDaños(String daños) {
-		this.daños = daños;
+	public void setDaÃ±os(String daÃ±os) {
+		this.daÃ±os = daÃ±os;
 	}
 
 	public int hashCode() {
@@ -45,7 +45,7 @@ public class Devolucion {
 	}
 
 	public String toString() {
-		return "Devolucion [codDevolucion=" + codDevolucion + ", codTaller=" + codTaller + ", daños=" + daños + "]";
+		return "Devolucion [codDevolucion=" + codDevolucion + ", codTaller=" + codTaller + ", daï¿½os=" + daÃ±os + "]";
 	}
 	
 	

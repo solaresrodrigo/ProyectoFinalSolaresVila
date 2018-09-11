@@ -18,9 +18,9 @@ public class AutosIO {
 		this.scanner= scanner;
 	}
 	
-	public void añadir() {
+	public void aÃ±adir() {
 		Auto auto = AutoIO.ingresar(scanner);
-		autos.añadir(auto);
+		autos.aÃ±adir(auto);
 	}
 	
 	public void eliminar() throws InexistenteException {

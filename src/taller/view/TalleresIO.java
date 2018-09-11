@@ -19,14 +19,14 @@ public class TalleresIO {
 		this.scanner = scanner;
 	}
 
-	public void añadir() {
+	public void aÃ±adir() {
 		Taller taller = TallerIO.ingresar(scanner);
-		talleres.añadir(taller);
+		talleres.aÃ±adir(taller);
 	}
 
 	public void eliminar() throws InexistenteException{
 		int codTaller;
-		codTaller = InputTypes.readInt(scanner, "Código del taller: ");
+		codTaller = InputTypes.readInt(scanner, "Cï¿½digo del taller: ");
 		talleres.eliminar(codTaller);
 	}
 

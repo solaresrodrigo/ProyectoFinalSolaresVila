@@ -53,6 +53,7 @@ public class Administrativo {
 		}
 		return respuesta;
 	}
+	
 	@Override
 	public String toString() {
 		return "Administrativo [codAdministrativo=" + codAdministrativo + ", codAgencia=" + codAgencia + ", CI=" + CI

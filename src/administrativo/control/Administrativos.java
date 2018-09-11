@@ -15,7 +15,7 @@ public class Administrativos {
 		
 	}
 	
-	public void añadir(Administrativo administrativo) {
+	public void aÃ±adir(Administrativo administrativo) {
 		administrativos.add(administrativo);
 	}
 	

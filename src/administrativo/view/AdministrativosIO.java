@@ -19,14 +19,14 @@ public class AdministrativosIO {
 		this.scanner= scanner;
 	}
 	
-	public void añadir() {
+	public void aÃ±adir() {
 		Administrativo administrativo = AdministrativoIO.ingresar(scanner);
-		administrativos.añadir(administrativo);
+		administrativos.aÃ±adir(administrativo);
 	}
 	
 	public void eliminar() throws InexistenteException {
 		int codAdministrativo;
-		codAdministrativo= InputTypes.readInt(scanner, "Código Administrativo: ");
+		codAdministrativo= InputTypes.readInt(scanner, "Cï¿½digo Administrativo: ");
 		administrativos.eliminar(codAdministrativo);
 	}
 	
