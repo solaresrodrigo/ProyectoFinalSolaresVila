@@ -19,9 +19,9 @@ public class AgenciasIO {
 		this.scanner = scanner;
 	}
 
-	public void aÃ±adir() {
+	public void añadir() {
 		Agencia agencia = AgenciaIO.ingresar(scanner);
-		agencias.aÃ±adir(agencia);
+		agencias.añadir(agencia);
 	}
 
 	public void eliminar() throws InexistenteException{

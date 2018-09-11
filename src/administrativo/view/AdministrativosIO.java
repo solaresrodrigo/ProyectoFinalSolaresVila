@@ -1,11 +1,12 @@
 package administrativo.view;
 
 
+import java.util.Iterator;
+import java.util.Scanner;
+
 import administrativo.control.Administrativos;
 import administrativo.entity.Administrativo;
-import automovil.view.InexistenteException;
-import automovil.view.Iterator;
-import automovil.view.Scanner;
+import entity.InexistenteException;
 import view.InputTypes;
 
 public class AdministrativosIO {
@@ -31,7 +32,7 @@ public class AdministrativosIO {
 	
 	public void listar() {
 		Administrativo administrativo;
-		for(Iterator<Administrativo> iterator = administrativos.getAutos().iterator(); iterator.hasNext(); ) {
+		for(Iterator<Administrativo> iterator = administrativos.getAdministrativos().iterator(); iterator.hasNext(); ) {
 			administrativo = iterator.next();
 			System.out.println(administrativo);
 		}

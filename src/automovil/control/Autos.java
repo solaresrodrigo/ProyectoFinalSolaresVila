@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 import automovil.entity.Auto;
+import entity.InexistenteException;
 
 
 public class Autos {
@@ -13,7 +14,7 @@ public class Autos {
 	public Autos() {
 		autos = new HashSet<Auto>();
 	}
-	public void aÃ±adir(Auto auto){
+	public void añadir(Auto auto){
 		autos.add(auto);
 	}
 	

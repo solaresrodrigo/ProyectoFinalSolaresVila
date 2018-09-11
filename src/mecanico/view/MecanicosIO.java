@@ -19,9 +19,9 @@ public class MecanicosIO {
 		this.scanner = scanner;
 	}
 
-	public void aÃ±adir() {
+	public void añadir() {
 		Mecanico mecanico = MecanicoIO.ingresar(scanner);
-		mecanicos.aÃ±adir(mecanico);
+		mecanicos.añadir(mecanico);
 	}
 
 	public void eliminar() throws InexistenteException{

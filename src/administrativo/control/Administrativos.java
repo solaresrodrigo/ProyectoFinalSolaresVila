@@ -4,13 +4,14 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 import administrativo.entity.Administrativo;
+import entity.InexistenteException;
 
 public class Administrativos {
 
 	private HashSet<Administrativo> administrativos;
 	
 	public Administrativos() {
-		administrativos = new HashSet<Administrativo>;
+		administrativos = new HashSet<Administrativo>();
 		
 	}
 	
@@ -23,7 +24,7 @@ public class Administrativos {
 		administrativos.remove(administrativo);
 	}
 	
-	public Administrativo buscar(int codAdministrativo) throws inexistenteException {
+	public Administrativo buscar(int codAdministrativo) throws InexistenteException {
 		Administrativo buscando= null;
 		Administrativo administrativo;
 		

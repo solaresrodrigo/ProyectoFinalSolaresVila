@@ -19,9 +19,9 @@ public class ClientesIO {
 		this.scanner = scanner;
 	}
 	
-	public void aÃ±adir() {
+	public void añadir() {
 		Cliente cliente = ClienteIO.ingresar(scanner);
-		clientes.aÃ±adir(cliente);
+		clientes.añadir(cliente);
 	}
 	
 	public void eliminar() throws InexistenteException{

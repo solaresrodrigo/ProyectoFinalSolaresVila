@@ -1,7 +1,5 @@
 package administrativo.entity;
 
-import automovil.entity.Auto;
-
 public class Administrativo {
 
 	private int codAdministrativo;
@@ -14,7 +12,6 @@ public class Administrativo {
 		this.codAgencia = codAgencia;
 		CI = cI;
 		this.nroContacto = nroContacto;
-		this.dirección = dirección;
 	}
 	public Integer getCodAdministrativo() {
 		return codAdministrativo;
@@ -43,7 +40,7 @@ public class Administrativo {
 	
 	@Override
 	public int hashCode() {
-		return this.getCodAdministrativo().hashcode();
+		return this.getCodAdministrativo().hashCode();
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -54,12 +51,12 @@ public class Administrativo {
 				respuesta = true;
 			}
 		}
-		return respuesta
+		return respuesta;
 	}
 	@Override
 	public String toString() {
 		return "Administrativo [codAdministrativo=" + codAdministrativo + ", codAgencia=" + codAgencia + ", CI=" + CI
-				+ ", nroContacto=" + nroContacto + ", dirección=" + dirección + "]";
+				+ ", nroContacto=" + nroContacto + "]";
 	}
 	
 	

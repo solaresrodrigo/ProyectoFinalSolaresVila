@@ -14,7 +14,7 @@ public class Mecanicos {
 		mecanicos = new HashSet<Mecanico>();
 	}
 
-	public void aÃ±adir(Mecanico mecanico) {
+	public void añadir(Mecanico mecanico) {
 
 		mecanicos.add(mecanico);
 	}

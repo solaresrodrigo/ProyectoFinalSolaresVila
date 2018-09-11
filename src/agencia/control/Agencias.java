@@ -15,7 +15,7 @@ public class Agencias {
 		agencias = new HashSet<Agencia>();
 	}
 
-	public void aÃ±adir(Agencia agencia) {
+	public void añadir(Agencia agencia) {
 
 		agencias.add(agencia);
 	}

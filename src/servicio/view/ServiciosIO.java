@@ -19,9 +19,9 @@ public class ServiciosIO {
 		this.scanner = scanner;
 	}
 	
-	public void aÃ±adir() {
+	public void añadir() {
 		Servicio servicio = ServicioIO.ingresar(scanner);
-		servicios.aÃ±adir(servicio);
+		servicios.añadir(servicio);
 	}
 	
 	public void eliminar() throws InexistenteException{
