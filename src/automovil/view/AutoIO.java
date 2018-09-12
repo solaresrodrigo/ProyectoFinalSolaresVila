@@ -8,19 +8,15 @@ import view.InputTypes;
 public class AutoIO {
 
 	public static Auto ingresar(Scanner scanner){
-		int codAuto= InputTypes.readInt(scanner,"Código del Automovil: ");
-		int codAgencia= InputTypes.readInt(scanner,"Código de la Agencia: ");
-		int codTaller= InputTypes.readInt(scanner, "Código del Taller: ");
-		String placa = InputTypes.readString(scanner,"Número de placa: ");
+		
+		int placa = InputTypes.readInt(scanner,"Numero de placa: ");
 		String tipo = InputTypes.readString(scanner, "Tipo de Automovil: ");
 		int capacidad= InputTypes.readInt(scanner, "Capacidad: ");
-		int nroPuertas= InputTypes.readInt(scanner,"Número de Puertas: ");
-		String modelo = InputTypes.readString(scanner,"Modelo: ");
-		int kilometraje= InputTypes.readInt(scanner, "Kilometraje: ");
+		int modelo = InputTypes.readInt(scanner,"Modelo: ");
 		String estado = InputTypes.readString(scanner, "Estado de Renta: ");
+		int precio = InputTypes.readInt(scanner,"Precio por dÃ­a: ");
 		
-		return new Auto(codAuto, codAgencia, codTaller, placa, tipo, capacidad,
-									nroPuertas, modelo, kilometraje, estado);
+		return new Auto(placa, tipo, capacidad, modelo, estado, precio);
 	}
 	
 	

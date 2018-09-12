@@ -6,4 +6,5 @@
  *
  */
 module servicioDeRenta {
+	requires java.sql;
 }
