@@ -1,6 +1,5 @@
 package view;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -12,13 +11,12 @@ public class Pantalla {
 
 		Scanner scanner = new Scanner(System.in);
 
-
-		ResultSet resultado;
 		try {
 			Conexion conexion = new Conexion("root", "","serviciorenta");
 
 			Menu.menu(scanner, conexion);
-
+			
+			conexion.close();
 
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
