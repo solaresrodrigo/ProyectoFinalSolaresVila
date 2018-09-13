@@ -1,4 +1,4 @@
-package servicio.view;
+package taller.view;
 
 import java.util.Scanner;
 
@@ -11,10 +11,10 @@ public class Menu {
 		int opcion;
 		
 		while(true) {
-			System.out.println("1. Registrar nuevo servicio");
-			System.out.println("2. Listar servicios");
-			System.out.println("3. Eliminar servicio");
-			System.out.println("4. Actualizar servicio");
+			System.out.println("1. Registrar nuevo taller");
+			System.out.println("2. Listar talleres");
+			System.out.println("3. Eliminar taller");
+			System.out.println("4. Actualizar taller");
 			System.out.println("0. Salir.");
 			System.out.println();
 			
@@ -28,7 +28,7 @@ public class Menu {
 	
 	public static void menu(Scanner scanner, Conexion conexion) {
 		boolean salir=false;
-		ServiciosIO serviciosView = new ServiciosIO(conexion, scanner);
+		TalleresIO talleresView = new TalleresIO(conexion, scanner);
 		
 		while(!salir) {
 			switch(encabezado(scanner)) {
@@ -36,16 +36,16 @@ public class Menu {
 				salir = true;
 				break;
 			case 1: 
-				serviciosView.anadir();
+				talleresView.anadir();
 				break;
 			case 2:
-				serviciosView.listar();
+				talleresView.listar();
 				break;
 			case 3:
-				serviciosView.eliminar();;
+				talleresView.eliminar();;
 				break;
 			case 4:
-				serviciosView.actualizar();;
+				talleresView.actualizar();;
 				break;
 			}
 			
