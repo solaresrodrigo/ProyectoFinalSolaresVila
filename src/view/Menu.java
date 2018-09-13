@@ -13,7 +13,7 @@ public class Menu {
 		while(true) {
 			System.out.println("-----Servicio de Renta-----");
 			System.out.println("1. Menu autos.");
-			System.out.println("2. .");
+			System.out.println("2. Menu servicios.");
 			System.out.println("0. Salir.");
 
 			opcion = InputTypes.readInt(scanner, "Ingrese la opcion deseada: ");
@@ -40,7 +40,7 @@ public class Menu {
 				automovil.view.Menu.menu(scanner, conexion);
 				break;
 			case 2:
-				///
+				servicio.view.Menu.menu(scanner, conexion);
 				break;
 			}
 		}

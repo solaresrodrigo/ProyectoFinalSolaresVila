@@ -11,20 +11,19 @@ public class Menu {
 		int opcion;
 		
 		while(true) {
-			System.out.println("Ingrese una opci�n: ");
 			System.out.println("1. Registrar Nuevo Auto");
 			System.out.println("2. Listar Autos");
 			System.out.println("3. Eliminar auto");
-			System.out.println("4. Salir.");
+			System.out.println("4. Actualizar auto");
+			System.out.println("5. Salir.");
 			System.out.println();
 			
-			opcion=InputTypes.readInt(scanner, "�Su Opci�n?");
+			opcion=InputTypes.readInt(scanner, "Ingrese su opcion: ");
 			
-			if(opcion >= 0 && opcion<= 4) {
+			if(opcion >= 0 && opcion<= 5) {
 				return opcion;
 			}
 		}
-		
 	}
 	
 	public static void menu(Scanner scanner, Conexion conexion) {
@@ -69,6 +68,9 @@ public class Menu {
 						break;
 					}
 				}
+			case 4:
+				autosView.actualizar();
+				break;
 			}
 		}
 	}

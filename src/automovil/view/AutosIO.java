@@ -81,7 +81,7 @@ public class AutosIO {
 					+"PLACA = ? "
 					+"WHERE CODIGOAUTO = ? ");
 			
-			codigoAuto = InputTypes.readInt(scanner, "Ingrese el codigo del automovil a eliminar: ");
+			codigoAuto = InputTypes.readInt(scanner, "Ingrese el codigo del automovil a actualizar: ");
 			
 			conexion.getSentencia().setString(1, auto.getTipo());
 			conexion.getSentencia().setInt(2, auto.getCapacidad());
@@ -104,14 +104,26 @@ public class AutosIO {
 		ResultSet resultado;
 		codigoAuto = InputTypes.readInt(scanner, "Ingrese el codigo del automovil a listar: ");
 		try {
-			conexion.consulta("SELECT AUTOS "
+			conexion.consulta("SELECT * FROM AUTOS "
 					+"WHERE CODIGOAUTO = ?" );
 
 			conexion.getSentencia().setInt(1, codigoAuto);
 			resultado = conexion.resultado();
 
 			while(resultado.next()) {
-				System.out.print(resultado.getString("AUTOS"));
+				System.out.print(resultado.getInt("CODIGOAUTO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.print(resultado.getString("TIPO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("CAPACIDAD"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("MODELO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getString("ESTADO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("PRECIO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("PLACA"));
 			}
 			resultado.close();
 			
@@ -129,14 +141,26 @@ public class AutosIO {
 		ResultSet resultado;
 		tipo = InputTypes.readString(scanner, "Ingrese el tipo del automovil: ");
 		try {
-			conexion.consulta("SELECT AUTOS "
+			conexion.consulta("SELECT * FROM AUTOS "
 					+"WHERE TIPO = ?" );
 
 			conexion.getSentencia().setString(1, tipo);
 			resultado = conexion.resultado();
 
 			while(resultado.next()) {
-				System.out.print(resultado.getString("AUTOS"));
+				System.out.print(resultado.getInt("CODIGOAUTO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.print(resultado.getString("TIPO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("CAPACIDAD"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("MODELO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getString("ESTADO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("PRECIO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("PLACA"));
 			}
 			resultado.close();
 			
@@ -155,14 +179,26 @@ public class AutosIO {
 		ResultSet resultado;
 		capacidad = InputTypes.readInt(scanner, "Ingrese la capacidad del autoovil: ");
 		try {
-			conexion.consulta("SELECT AUTOS "
+			conexion.consulta("SELECT * FROM AUTOS "
 					+"WHERE CAPACIDAD = ?" );
 
 			conexion.getSentencia().setInt(1, capacidad);
 			resultado = conexion.resultado();
 
 			while(resultado.next()) {
-				System.out.print(resultado.getString("AUTOS"));
+				System.out.print(resultado.getInt("CODIGOAUTO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.print(resultado.getString("TIPO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("CAPACIDAD"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("MODELO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getString("ESTADO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("PRECIO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("PLACA"));
 			}
 			resultado.close();
 			
@@ -180,14 +216,26 @@ public class AutosIO {
 		ResultSet resultado;
 		modelo = InputTypes.readInt(scanner, "Ingrese modelo del automovil: ");
 		try {
-			conexion.consulta("SELECT AUTOS "
+			conexion.consulta("SELECT * FROM AUTOS "
 					+"WHERE MODELO = ?" );
 
 			conexion.getSentencia().setInt(1, modelo);
 			resultado = conexion.resultado();
 
 			while(resultado.next()) {
-				System.out.print(resultado.getString("AUTOS"));
+				System.out.print(resultado.getInt("CODIGOAUTO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.print(resultado.getString("TIPO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("CAPACIDAD"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("MODELO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getString("ESTADO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("PRECIO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("PLACA"));
 			}
 			resultado.close();
 			
@@ -205,14 +253,26 @@ public class AutosIO {
 		ResultSet resultado;
 		estado = InputTypes.readString(scanner, "Alquilado o No alquilado: ");
 		try {
-			conexion.consulta("SELECT AUTOS "
+			conexion.consulta("SELECT * FROM AUTOS "
 					+"WHERE ESTADO = ?" );
 
 			conexion.getSentencia().setString(1, estado);
 			resultado = conexion.resultado();
 
 			while(resultado.next()) {
-				System.out.print(resultado.getString("AUTOS"));
+				System.out.print(resultado.getInt("CODIGOAUTO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.print(resultado.getString("TIPO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("CAPACIDAD"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("MODELO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getString("ESTADO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("PRECIO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("PLACA"));
 			}
 			resultado.close();
 			
@@ -230,14 +290,26 @@ public class AutosIO {
 		ResultSet resultado;
 		precio = InputTypes.readInt(scanner, "Ingrese el precio por dia del automovil: ");
 		try {
-			conexion.consulta("SELECT AUTOS "
+			conexion.consulta("SELECT * FROM AUTOS "
 					+"WHERE PRECIO = ?" );
 
 			conexion.getSentencia().setInt(1, precio);
 			resultado = conexion.resultado();
 
 			while(resultado.next()) {
-				System.out.print(resultado.getString("AUTOS"));
+				System.out.print(resultado.getInt("CODIGOAUTO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.print(resultado.getString("TIPO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("CAPACIDAD"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("MODELO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getString("ESTADO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("PRECIO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("PLACA"));
 			}
 			resultado.close();
 			
