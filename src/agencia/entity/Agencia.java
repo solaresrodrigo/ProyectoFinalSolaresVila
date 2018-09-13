@@ -3,18 +3,11 @@ package agencia.entity;
 public class Agencia {
 
 	private String direccion;
-	private string ciudad;
+	private String ciudad;
 	
-	public Agencia(int codigoAgencia, String direccion, string ciudad) {
-		this.codigoAgencia = codigoAgencia;
+	public Agencia(String direccion, String ciudad) {
 		this.direccion = direccion;
 		this.ciudad = ciudad;
-	}
-	public int getCodigoAgencia() {
-		return codigoAgencia;
-	}
-	public void setCodigoAgencia(int codigoAgencia) {
-		this.codigoAgencia = codigoAgencia;
 	}
 	public String getDireccion() {
 		return direccion;
@@ -22,10 +15,10 @@ public class Agencia {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
-	public string getCiudad() {
+	public String getCiudad() {
 		return ciudad;
 	}
-	public void setCiudad(string ciudad) {
+	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
 	}
 	

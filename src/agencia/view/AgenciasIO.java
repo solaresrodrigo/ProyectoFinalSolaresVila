@@ -15,7 +15,7 @@ public class AgenciasIO {
 		this.scanner = scanner;
 	}
 	
-	public void añadir() {
+	public void anadir() {
 		Agencia agencia = AgenciaIO.ingresar(scanner);
 		
 		try {

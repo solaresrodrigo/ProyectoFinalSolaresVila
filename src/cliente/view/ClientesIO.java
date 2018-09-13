@@ -1,5 +1,6 @@
 package cliente.view;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 import cliente.entity.Cliente;
@@ -13,18 +14,18 @@ public class ClientesIO {
 		this.conexion = conexion;
 		this.scanner = scanner;
 	}
-	
-	public void añadir() {
+
+	public void anadir() {
 		Cliente cliente = ClienteIO.ingresar(scanner);
-		
+
 		try {
 			conexion.consulta("INSERT INTO CLIENTE(NROCONTACTO, CI, DIRECCION)"
 					+ "VALUES(?,?,?)" );
-			
+
 			conexion.getSentencia().setInt(1,cliente.getNroContacto());
 			conexion.getSentencia().setInt(2,cliente.getCI());
 			conexion.getSentencia().setString(3,cliente.getDireccion());
-			
+
 			conexion.modificacion();
 			conexion.close();
 		} catch(SQLException e) {
@@ -32,4 +33,6 @@ public class ClientesIO {
 		} catch(Throwable e) {
 			e.printStackTrace();
 		}
+	}
 }
+
