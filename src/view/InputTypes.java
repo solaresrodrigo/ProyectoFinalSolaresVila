@@ -1,5 +1,6 @@
 package view;
 
+import java.sql.Date;
 import java.util.Scanner;
 
 public class InputTypes {
@@ -45,6 +46,32 @@ public class InputTypes {
 		System.out.print(msg);
 		texto=scanner.nextLine();
 		return texto;	
+	}
+
+	@SuppressWarnings("deprecation")
+	public static Date readDate(Scanner scanner, String msg) {
+		Date fecha=null;
+		int year, month, date;
+
+		while(true) {
+			try {
+				System.out.print(msg);
+				year=scanner.nextInt();
+				month=scanner.nextInt();
+				date=scanner.nextInt();
+				fecha.setYear(year);
+				fecha.setMonth(month);
+				fecha.setDate(date);
+				break;
+			}
+			catch(java.util.InputMismatchException e) {
+				System.out.print("El valor debe ser un número entero.");
+				scanner.nextLine();
+			}
+
+		}
+		return fecha;
+		
 	}
 
 }

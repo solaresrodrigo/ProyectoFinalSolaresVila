@@ -22,7 +22,7 @@ public class ServiciosIO {
 		Servicio servicio = ServicioIO.ingresar(scanner);
 
 		try {
-			conexion.consulta("INSERT INTO SERVICIOS(PRECIO, TIOPO "
+			conexion.consulta("INSERT INTO SERVICIOS(PRECIO, TIPO) "
 					+"VALUES(?,?) " );
 
 			conexion.getSentencia().setInt(1, servicio.getPrecio());
