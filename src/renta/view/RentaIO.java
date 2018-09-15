@@ -12,10 +12,11 @@ public class RentaIO {
 
 		int codigoCliente = InputTypes.readInt(scanner,"Codigo del cliente: ");
 		int codigoAgencia = InputTypes.readInt(scanner,"Codigo de  la agencia: ");
+		int codigoAuto = InputTypes.readInt(scanner,"Codigo del automovil: ");
 		Date fechaInicio = InputTypes.readDate(scanner,"Fecha de inicio de la renta: ");
 		Date fechaFin = InputTypes.readDate(scanner,"Fecha de fin de la renta: ");
 
-		return new Renta(codigoCliente, codigoAgencia, fechaInicio, fechaFin);
+		return new Renta(codigoCliente, codigoAgencia, codigoAuto, fechaInicio, fechaFin);
 	}
 
 }

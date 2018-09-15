@@ -5,11 +5,13 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import control.Conexion;
+import detalle.entity.Detalle;
+import detalle.view.DetalleIO;
 import renta.entity.Renta;
 import view.InputTypes;
 
 public class RentasIO {
-	
+
 	private Conexion conexion;
 	private Scanner scanner;
 
@@ -17,19 +19,41 @@ public class RentasIO {
 		this.conexion = conexion;
 		this.scanner= scanner;
 	}
-	
-	public void anadir() {
-		Renta renta = RentaIO.ingresar(scanner);
 
+	public void anadir() {
+		boolean servicio=true;
+		int opcion;
+		Renta renta = RentaIO.ingresar(scanner);
 		try {
-			conexion.consulta("INSERT INTO SERVICIOS(CODIGOCLIENTE, CODIGOAGENCIA, FECHAINICIO, FECHAFIN) "
-					+"VALUES(?,?,?,?) " );
+			conexion.consulta("INSERT INTO RENTAS(CODIGOCLIENTE, CODIGOAGENCIA, CODIGOAUTO, FECHAINICIO, FECHAFIN) "
+					+"VALUES(?,?,?,?,?) " );
 
 			conexion.getSentencia().setInt(1, renta.getCodigoCliente());
 			conexion.getSentencia().setInt(2, renta.getCodigoAgencia());
-			conexion.getSentencia().setDate(3, renta.getFechaInicio());
-			conexion.getSentencia().setDate(4, renta.getFechaFin());
+			conexion.getSentencia().setInt(3, renta.getCodigoAuto());
+			conexion.getSentencia().setDate(4, renta.getFechaInicio());
+			conexion.getSentencia().setDate(5, renta.getFechaFin());
 
+			while(servicio) {
+				System.out.println("1. Anadir servicio.");
+				System.out.println("0. Finalizar registro de Renta.");
+				opcion = InputTypes.readInt(scanner, "Ingrese su opcion deseada: ");
+				if(opcion >= 0 && opcion<= 1){
+					switch(opcion) {
+					case 0:
+						servicio = false;
+						break;
+					case 1:
+						conexion.consulta("INSERT INTO DETALLES(CODIGORENTA, CODIGOSERVICIO) "
+								+"VALUES(?,?) " );
+
+						Detalle detalle = DetalleIO.ingresar(scanner);
+
+						conexion.getSentencia().setInt(1, detalle.getCodigoRenta());
+						conexion.getSentencia().setInt(2, detalle.getCodigoServicio());
+					}
+				}
+			}
 			conexion.modificacion();
 
 		} catch (SQLException e) {
@@ -40,7 +64,7 @@ public class RentasIO {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void eliminar() {
 
 		int codigoRenta;
@@ -63,7 +87,7 @@ public class RentasIO {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void actualizar() {
 		Renta renta = RentaIO.ingresar(scanner);
 		int codigoRenta;
@@ -71,13 +95,15 @@ public class RentasIO {
 			conexion.consulta("UPDATE RENTAS "
 					+"SET CODIGOCLIENTE= ?, "
 					+"CODIGOAGENCIA = ? "
+					+"CODIGOAUTO = ? "
 					+"WHERE CODIGORENTA = ? ");
-			
+
 			codigoRenta = InputTypes.readInt(scanner, "Ingrese el codigo de la renta a actualizar: ");
-			
+
 			conexion.getSentencia().setInt(1, renta.getCodigoCliente());
 			conexion.getSentencia().setInt(2, renta.getCodigoAgencia());
-			conexion.getSentencia().setInt(3, codigoRenta);
+			conexion.getSentencia().setInt(3, renta.getCodigoAuto());
+			conexion.getSentencia().setInt(4, codigoRenta);
 
 			conexion.modificacion();
 
@@ -86,7 +112,7 @@ public class RentasIO {
 			e.printStackTrace();
 		}
 	}
-	
+
 
 	public void listar() {
 		int codigoRenta;
@@ -104,13 +130,15 @@ public class RentasIO {
 				System.out.println(resultado.getString("\t"));
 				System.out.print(resultado.getInt("CODIGOAGENCIA"));
 				System.out.println(resultado.getString("\t"));
+				System.out.print(resultado.getInt("CODIGOAUTO"));
+				System.out.println(resultado.getString("\t"));
 				System.out.println(resultado.getString("FECHAINICIO"));
 				System.out.println(resultado.getString("\t"));
 				System.out.println(resultado.getString("FECHAFIN"));
 				System.out.println(resultado.getString("\t"));
 			}
 			resultado.close();
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
