@@ -148,4 +148,40 @@ public class RentasIO {
 		}
 	}
 
+	public void calcularMonto() {
+		int codigoRenta;
+		ResultSet resultado;
+		codigoRenta = InputTypes.readInt(scanner, "Ingrese el codigo de la renta a listar: ");
+		try {
+			conexion.consulta("SELECT R.CODIGORENTA, R.CODIGOCLIENTE, (SUM(S.PRECIO)+A.PRECIO*(DATEDIFF(R.FECHAFIN,R.FECHAINICIO))) AS MONTO "
+					+ "FROM CLIENTES C INNER JOIN RENTAS R "
+					+ "ON C.CODIGOCLIENTE = R.CODIGOCLIENTE "
+					+ "INNER JOIN AUTOS A ON R.CODIGOAUTO = A.CODIGOAUTO "
+					+ "INNER JOIN DETALLES D ON d.codigoRenta = R.CODIGORENTA "
+					+ "INNER JOIN SERVICIOS S ON S.CODIGOSERVICIO = D.CODIGOSERVICIO "
+					+"WHERE CODIGORENTA = ?" );
+
+			conexion.getSentencia().setInt(1, codigoRenta);
+			resultado = conexion.resultado();
+
+			while(resultado.next()) {
+				System.out.print(resultado.getInt("CODIGORENTA"));
+				System.out.println(resultado.getString("\t"));
+				System.out.print(resultado.getInt("CODIGOCLIENTE"));
+				System.out.println(resultado.getString("\t"));
+				System.out.print(resultado.getInt("MONTO"));
+				System.out.println(resultado.getString("\t"));
+			}
+			resultado.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
 }

@@ -3,7 +3,6 @@ package renta.view;
 import java.util.Scanner;
 
 import control.Conexion;
-import servicio.view.ServiciosIO;
 import view.InputTypes;
 
 public class Menu {
@@ -30,7 +29,7 @@ public class Menu {
 	
 	public static void menu(Scanner scanner, Conexion conexion) {
 		boolean salir=false;
-		ServiciosIO serviciosView = new ServiciosIO(conexion, scanner);
+		RentasIO rentasView = new RentasIO(conexion, scanner);
 		
 		while(!salir) {
 			switch(encabezado(scanner)) {
@@ -38,19 +37,19 @@ public class Menu {
 				salir = true;
 				break;
 			case 1: 
-				serviciosView.anadir();
+				rentasView.anadir();
 				break;
 			case 2:
-				serviciosView.listar();
+				rentasView.listar();
 				break;
 			case 3:
-				serviciosView.eliminar();;
+				rentasView.eliminar();;
 				break;
 			case 4:
-				serviciosView.actualizar();;
+				rentasView.actualizar();;
 				break;
 			case 5:
-				serviciosView.actualizar();;
+				rentasView.calcularMonto();
 				break;
 			}
 			
