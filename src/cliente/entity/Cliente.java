@@ -21,7 +21,7 @@ public class Cliente {
 		return CI;
 	}
 	public void setCI(int CI) {
-		CI = CI;
+		this.CI = CI;
 	}
 	public String getDireccion() {
 		return direccion;
