@@ -64,7 +64,7 @@ public class AdministrativosIO {
 		try {
 			conexion.consulta("UPDATE ADMINISTRATIVO "
 					+"SET CODIGOAGENCIA= ?, "
-					+"CI = ? "
+					+"CI = ?,"
 					+ "NROCONTACTO = ?"
 					+"WHERE CODIGOADMINISTRATIVO = ? ");
 			
