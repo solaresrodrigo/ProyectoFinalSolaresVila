@@ -113,8 +113,40 @@ public class RentasIO {
 		}
 	}
 
-
+	
 	public void listar() {
+		ResultSet resultado;
+		try {
+			conexion.consulta("SELECT * FROM RENTAS ");
+
+			resultado = conexion.resultado();
+
+			while(resultado.next()) {
+				System.out.print(resultado.getInt("CODIGORENTA"));
+				System.out.println(resultado.getString("\t"));
+				System.out.print(resultado.getInt("CODIGOCLIENTE"));
+				System.out.println(resultado.getString("\t"));
+				System.out.print(resultado.getInt("CODIGOAGENCIA"));
+				System.out.println(resultado.getString("\t"));
+				System.out.print(resultado.getInt("CODIGOAUTO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getString("FECHAINICIO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getString("FECHAFIN"));
+				System.out.println(resultado.getString("\t"));
+			}
+			resultado.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void listarPorCodigo() {
 		int codigoRenta;
 		ResultSet resultado;
 		codigoRenta = InputTypes.readInt(scanner, "Ingrese el codigo de la renta a listar: ");
@@ -147,6 +179,45 @@ public class RentasIO {
 			e.printStackTrace();
 		}
 	}
+	
+	public void listarPorCliente() {
+		int codigoCliente;
+		ResultSet resultado;
+		codigoCliente = InputTypes.readInt(scanner, "Ingrese el codigo del cliente a listar: ");
+		try {
+			conexion.consulta("SELECT r.codigoRenta, c.codigoCliente, r.codigoAgencia, r.codigoAuto, r.fechaInicio, r.fechaFin FROM RENTAS "
+					+ "INNER JOIN clientes c ON  r.codigoCliente = c.codigoCliente "
+					+"WHERE CODIGOCLIENTE = ?" );
+
+			conexion.getSentencia().setInt(1, codigoCliente);
+			resultado = conexion.resultado();
+
+			while(resultado.next()) {
+				System.out.print(resultado.getInt("CODIGORENTA"));
+				System.out.println(resultado.getString("\t"));
+				System.out.print(resultado.getInt("CODIGOCLIENTE"));
+				System.out.println(resultado.getString("\t"));
+				System.out.print(resultado.getInt("CODIGOAGENCIA"));
+				System.out.println(resultado.getString("\t"));
+				System.out.print(resultado.getInt("CODIGOAUTO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getString("FECHAINICIO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getString("FECHAFIN"));
+				System.out.println(resultado.getString("\t"));
+			}
+			resultado.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
 
 	public void calcularMonto() {
 		int codigoRenta;

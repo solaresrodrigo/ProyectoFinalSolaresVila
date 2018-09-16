@@ -14,9 +14,12 @@ public class Menu {
 			System.out.println("-----Servicio de Renta-----");
 			System.out.println("1. Menu Administrativos.");
 			System.out.println("2. Menu Agencias.");
-			System.out.println("3. Menu Autos.");
+			System.out.println("3. Menu Automoviles.");
 			System.out.println("4. Menu Clientes.");
 			System.out.println("5. Menu Servicios.");
+			System.out.println("6. Menu Talleres.");
+			System.out.println("7. Menu Mecanicos.");
+			System.out.println("8. Menu Rentas.");
 			System.out.println("0. Salir.");
 
 			opcion = InputTypes.readInt(scanner, "Ingrese la opcion deseada: ");
@@ -29,9 +32,6 @@ public class Menu {
 
 	public static void menu(Scanner scanner, Conexion conexion) {
 		boolean salir=false;
-
-
-
 
 
 		while(!salir) {
@@ -53,6 +53,15 @@ public class Menu {
 				break;
 			case 5:
 				servicio.view.Menu.menu(scanner, conexion);
+				break;
+			case 6:
+				taller.view.Menu.menu(scanner, conexion);
+				break;
+			case 7:
+				mecanico.view.Menu.menu(scanner, conexion);
+				break;
+			case 8:
+				renta.view.Menu.menu(scanner, conexion);
 				break;
 			}
 		}

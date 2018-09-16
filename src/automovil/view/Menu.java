@@ -49,25 +49,29 @@ public class Menu {
 						salirListado = true;
 						break;
 					case 1:
-						autosView.listarPorCodigo();
+						autosView.listar();
 						break;
 					case 2:
-						autosView.listarPorTipo();
+						autosView.listarPorCodigo();
 						break;
 					case 3:
-						autosView.listarPorCapacidad();
+						autosView.listarPorTipo();
 						break;
 					case 4:
-						autosView.listarPorModelo();
+						autosView.listarPorCapacidad();
 						break;
 					case 5:
-						autosView.listarPorEstado();
+						autosView.listarPorModelo();
 						break;
 					case 6:
+						autosView.listarPorEstado();
+						break;
+					case 7:
 						autosView.listarPorPrecio();
 						break;
 					}
 				}
+				break;
 			case 4:
 				autosView.actualizar();
 				break;
@@ -79,19 +83,20 @@ public class Menu {
 		int opcion;
 		while(true) {
 			System.out.println("-----Listado de automoviles: ");
-			System.out.println("1. Por codigo");
-			System.out.println("2. Por tipo");
-			System.out.println("3. Por capacidad");
-			System.out.println("4. Por modelo.");
-			System.out.println("5. Por estado.");
-			System.out.println("6. Por precio/dia.");
+			System.out.println("1. Listado general.");
+			System.out.println("2. Por codigo");
+			System.out.println("3. Por tipo");
+			System.out.println("4. Por capacidad");
+			System.out.println("5. Por modelo.");
+			System.out.println("6. Por estado.");
+			System.out.println("7. Por precio/dia.");
 			System.out.println("0. Salir.");
 
 			System.out.println();
 
 			opcion=InputTypes.readInt(scanner, "Ingrese una opcion:");
 
-			if(opcion >= 0 && opcion<= 6) {
+			if(opcion >= 0 && opcion<= 7) {
 				return opcion;
 			}
 

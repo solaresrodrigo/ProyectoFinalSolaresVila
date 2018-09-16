@@ -99,6 +99,40 @@ public class AutosIO {
 		}
 	}
 
+
+	public void listar() {
+		ResultSet resultado;
+		try {
+			conexion.consulta("SELECT * FROM AUTOS ");
+
+			resultado = conexion.resultado();
+
+			while(resultado.next()) {
+				System.out.print(resultado.getInt("CODIGOAUTO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.print(resultado.getString("TIPO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("CAPACIDAD"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("MODELO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getString("ESTADO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("PRECIO"));
+				System.out.println(resultado.getString("\t"));
+				System.out.println(resultado.getInt("PLACA"));
+			}
+			resultado.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public void listarPorCodigo() {
 		int codigoAuto;
 		ResultSet resultado;

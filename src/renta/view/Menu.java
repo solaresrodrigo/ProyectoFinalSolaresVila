@@ -29,6 +29,7 @@ public class Menu {
 	
 	public static void menu(Scanner scanner, Conexion conexion) {
 		boolean salir=false;
+		boolean salirListado = false;
 		RentasIO rentasView = new RentasIO(conexion, scanner);
 		
 		while(!salir) {
@@ -40,7 +41,22 @@ public class Menu {
 				rentasView.anadir();
 				break;
 			case 2:
-				rentasView.listar();
+				while(!salirListado) {
+					switch(encabezadoListado(scanner)) {
+					case 0:
+						salirListado = true;
+						break;
+					case 1:
+						rentasView.listar();
+						break;
+					case 2:
+						rentasView.listarPorCodigo();
+						break;
+					case 3:
+						rentasView.listarPorCliente();
+						break;
+					}
+				}
 				break;
 			case 3:
 				rentasView.eliminar();;
@@ -53,6 +69,27 @@ public class Menu {
 				break;
 			}
 			
+		}
+	}
+	
+	private static int encabezadoListado(Scanner scanner) {
+		int opcion;
+		while(true) {
+			System.out.println("-----Listado de rentas: ");
+			System.out.println("1. Listado general.");
+			System.out.println("2. Por codigo");
+			System.out.println("3. Por cliente");
+			
+			System.out.println("0. Salir.");
+
+			System.out.println();
+
+			opcion=InputTypes.readInt(scanner, "Ingrese una opcion:");
+
+			if(opcion >= 0 && opcion<= 3) {
+				return opcion;
+			}
+
 		}
 	}
 
