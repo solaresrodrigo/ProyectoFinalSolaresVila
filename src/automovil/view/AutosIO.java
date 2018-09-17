@@ -51,7 +51,7 @@ public class AutosIO {
 		codigoAuto = InputTypes.readInt(scanner, "Ingrese el codigo del automovil a eliminar: ");
 
 		try {
-			conexion.consulta("DETELE FROM AUTOS "
+			conexion.consulta("DELETE FROM AUTOS "
 					+"WHERE CODIGOAUTO = ?" );
 
 			conexion.getSentencia().setInt(1, codigoAuto);

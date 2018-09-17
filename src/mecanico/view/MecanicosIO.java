@@ -43,7 +43,7 @@ public class MecanicosIO {
 		int codigoMecanico= InputTypes.readInt(scanner, "Ingrese el codigo del Mecanico que desea eliminar: ");
 
 		try {
-			conexion.consulta("DETELE FROM MECANICOS "
+			conexion.consulta("DELETE FROM MECANICOS "
 					+"WHERE CODIGOMECANICO = ?" );
 
 			conexion.getSentencia().setInt(1, codigoMecanico);

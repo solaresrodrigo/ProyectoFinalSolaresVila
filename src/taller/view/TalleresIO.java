@@ -45,7 +45,7 @@ public class TalleresIO {
 		codigoTaller = InputTypes.readInt(scanner, "Ingrese el codigo del taller a eliminar: ");
 
 		try {
-			conexion.consulta("DETELE FROM TALLERES "
+			conexion.consulta("DELETE FROM TALLERES "
 					+"WHERE CODIGOTALLER = ?" );
 
 			conexion.getSentencia().setInt(1, codigoTaller);

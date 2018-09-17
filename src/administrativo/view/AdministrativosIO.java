@@ -43,7 +43,7 @@ public class AdministrativosIO {
 		codigoAdmin = InputTypes.readInt(scanner, "Ingrese el codigo del Administrador que desea eliminar: ");
 
 		try {
-			conexion.consulta("DETELE FROM ADMINISTRATIVOS "
+			conexion.consulta("DELETE FROM ADMINISTRATIVOS "
 					+"WHERE CODIGOADMINISTRATIVO = ?" );
 
 			conexion.getSentencia().setInt(1, codigoAdmin);

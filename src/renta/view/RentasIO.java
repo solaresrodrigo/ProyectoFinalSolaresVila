@@ -71,7 +71,7 @@ public class RentasIO {
 		codigoRenta = InputTypes.readInt(scanner, "Ingrese el codigo de la renta a eliminar: ");
 
 		try {
-			conexion.consulta("DETELE FROM RENTAS "
+			conexion.consulta("DELETE FROM RENTAS "
 					+"WHERE CODIGORENTA = ?" );
 
 			conexion.getSentencia().setInt(1, codigoRenta);

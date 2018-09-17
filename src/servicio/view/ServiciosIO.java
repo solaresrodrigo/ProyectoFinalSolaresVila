@@ -45,7 +45,7 @@ public class ServiciosIO {
 		codigoServicio = InputTypes.readInt(scanner, "Ingrese el codigo del servicio a eliminar: ");
 
 		try {
-			conexion.consulta("DETELE FROM SERVICIOS "
+			conexion.consulta("DELETE FROM SERVICIOS "
 					+"WHERE CODIGOSERVICIO = ?" );
 
 			conexion.getSentencia().setInt(1, codigoServicio);

@@ -42,7 +42,7 @@ public class ClientesIO {
 		codigoCliente = InputTypes.readInt(scanner, "Ingrese el codigo del Cliente que desea eliminar: ");
 
 		try {
-			conexion.consulta("DETELE FROM CLIENTES "
+			conexion.consulta("DELETE FROM CLIENTES "
 					+"WHERE CODIGOCLIENTE = ?" );
 
 			conexion.getSentencia().setInt(1, codigoCliente);
