@@ -1,14 +1,3 @@
-/administrativo/
-/agencia/
-/automovil/
-/cliente/
-/control/
-/detalle/
-<<<<<<< HEAD
-=======
-/module-info.class
->>>>>>> 4c1907d2828e0525d8f5edbcdea353b924a1c81f
-/renta/
-/servicio/
-/taller/
+/mecanico/
 /view/
+/administrativo/

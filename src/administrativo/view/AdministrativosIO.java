@@ -86,7 +86,7 @@ public class AdministrativosIO {
 		int codigoAgencia;
 		ResultSet resultado;
 		codigoAgencia = InputTypes.readInt(scanner, "Ingrese el codigo de la agencia de la "
-				+ "cual quiere saber quines la administran: ");
+				+ "cual quiere saber quienes la administran: ");
 		try {
 			conexion.consulta("SELECT * FROM ADMINISTRATIVO "
 					+"WHERE CODIGOAGENCIA = ?" );
