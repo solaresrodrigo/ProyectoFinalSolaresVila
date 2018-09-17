@@ -11,14 +11,15 @@ public class Conexion {
 	private Connection connection = null;
 	private PreparedStatement sentencia = null;
 	private static final String JDBC_DRIVER = "org.mariadb.jdbc.Driver";
-	private static String DB_URL = "jdbc:mariadb://10.211.55.3/";
+	private static String DB_URL = "jdbc:mariadb://127.0.0.1/";
 
 
 	public Conexion(String user, String password, String dataBase) throws ClassNotFoundException, SQLException {
 		Class.forName(JDBC_DRIVER);
-		System.out.println("Enlazado.");
+		
 		DB_URL = DB_URL + dataBase;
 		connection = DriverManager.getConnection(DB_URL, user, password);
+		System.out.println("Enlazado.");
 	}
 
 	public void consulta(String sql) throws SQLException{

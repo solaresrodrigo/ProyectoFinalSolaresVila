@@ -48,7 +48,6 @@ public class InputTypes {
 		return texto;	
 	}
 
-	@SuppressWarnings("deprecation")
 	public static Date readDate(Scanner scanner, String msg) {
 		Date fecha=null;
 		int year, month, date;

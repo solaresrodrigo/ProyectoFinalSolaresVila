@@ -12,7 +12,7 @@ public class Pantalla {
 		Scanner scanner = new Scanner(System.in);
 
 		try {
-			Conexion conexion = new Conexion("root", "","serviciorenta");
+			Conexion conexion = new Conexion("root", "","servicioderenta");
 
 			Menu.menu(scanner, conexion);
 			
