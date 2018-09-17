@@ -67,8 +67,7 @@ public class ServiciosIO {
 		int codigoServicio;
 		try {
 			conexion.consulta("UPDATE SERVICIOS "
-					+"SET PRECIO= ?, "
-					+"TIPO = ? "
+					+"SET PRECIO= ?, TIPO = ? "
 					+"WHERE CODIGOSERVICIO = ? ");
 			
 			codigoServicio = InputTypes.readInt(scanner, "Ingrese el codigo del servicio a actualizar: ");

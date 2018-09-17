@@ -63,9 +63,7 @@ public class MecanicosIO {
 		int codigoMecanico;
 		try {
 			conexion.consulta("UPDATE MECANICOS "
-					+"SET CODIGOTALLER= ?, "
-					+"CI = ?,"
-					+ "NROCONTACTO = ?"
+					+"SET CODIGOTALLER= ?, CI = ?, NROCONTACTO = ? "
 					+"WHERE CODIGOMECANICO = ? ");
 			
 			codigoMecanico = InputTypes.readInt(scanner, "Ingrese el codigo del Mecanico a actualizar Datos: ");

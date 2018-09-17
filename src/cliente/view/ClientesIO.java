@@ -62,9 +62,7 @@ public class ClientesIO {
 		int codigoCliente;
 		try {
 			conexion.consulta("UPDATE CLIENTES "
-					+"SET NROCONTACTO= ?, "
-					+"CI = ?,"
-					+ "DIRECCION = ?"
+					+"SET NROCONTACTO= ?, CI = ?, DIRECCION = ? "
 					+"WHERE CODIGOACLIENTE = ? ");
 			
 			codigoCliente = InputTypes.readInt(scanner, "Ingrese el codigo del Cliente a actualizar Datos: ");

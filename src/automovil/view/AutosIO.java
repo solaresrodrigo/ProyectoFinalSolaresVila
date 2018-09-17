@@ -73,12 +73,7 @@ public class AutosIO {
 		int codigoAuto;
 		try {
 			conexion.consulta("UPDATE AUTOS "
-					+"SET TIPO= ?, "
-					+"CAPACIDAD = ? "
-					+"MODELO = ? "
-					+"ESTADO = ? "
-					+"PRECIO = ? "
-					+"PLACA = ? "
+					+"SET TIPO= ?, CAPACIDAD = ?, MODELO = ?, ESTADO = ?, PRECIO = ?, PLACA = ? "
 					+"WHERE CODIGOAUTO = ? ");
 			
 			codigoAuto = InputTypes.readInt(scanner, "Ingrese el codigo del automovil a actualizar: ");
@@ -107,7 +102,7 @@ public class AutosIO {
 		codigoAuto = InputTypes.readInt(scanner, "Ingrese el codigo del automovil: ");
 		try {
 			conexion.consulta("UPDATE AUTOS "
-					+"SET ESTADO= ?, "
+					+"SET ESTADO= ? "
 					+"WHERE CODIGOAUTO = ? ");
 			
 			conexion.getSentencia().setString(1, estado);

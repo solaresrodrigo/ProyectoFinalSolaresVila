@@ -63,9 +63,7 @@ public class AdministrativosIO {
 		int codigoAdmin;
 		try {
 			conexion.consulta("UPDATE ADMINISTRATIVOS "
-					+"SET CODIGOAGENCIA= ?, "
-					+"CI = ?,"
-					+ "NROCONTACTO = ?"
+					+"SET CODIGOAGENCIA= ?, CI = ?, NROCONTACTO = ? "
 					+"WHERE CODIGOADMINISTRATIVO = ? ");
 			
 			codigoAdmin = InputTypes.readInt(scanner, "Ingrese el codigo del Administrativo a actualizar Datos: ");

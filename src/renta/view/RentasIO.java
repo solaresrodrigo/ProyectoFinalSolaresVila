@@ -93,9 +93,7 @@ public class RentasIO {
 		int codigoRenta;
 		try {
 			conexion.consulta("UPDATE RENTAS "
-					+"SET CODIGOCLIENTE= ?, "
-					+"CODIGOAGENCIA = ? "
-					+"CODIGOAUTO = ? "
+					+"SET CODIGOCLIENTE= ?, CODIGOAGENCIA = ?, CODIGOAUTO = ? "
 					+"WHERE CODIGORENTA = ? ");
 
 			codigoRenta = InputTypes.readInt(scanner, "Ingrese el codigo de la renta a actualizar: ");

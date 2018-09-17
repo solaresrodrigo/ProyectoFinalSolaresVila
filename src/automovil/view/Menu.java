@@ -11,10 +11,10 @@ public class Menu {
 		int opcion;
 		
 		while(true) {
-			System.out.println("1. Registrar Nuevo Auto");
-			System.out.println("2. Listar Autos");
-			System.out.println("3. Eliminar auto");
-			System.out.println("4. Actualizar auto");
+			System.out.println("1. Registrar Nuevo Automovil");
+			System.out.println("2. Eliminar automovil");
+			System.out.println("3. Listar Automoviles");
+			System.out.println("4. Actualizar automoviles");
 			System.out.println("5. Actualizar el estado del automovil.");
 			System.out.println("0. Salir.");
 			System.out.println();

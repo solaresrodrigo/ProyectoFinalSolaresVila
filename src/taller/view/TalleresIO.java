@@ -67,8 +67,7 @@ public class TalleresIO {
 		int codigoTaller;
 		try {
 			conexion.consulta("UPDATE TALLERES "
-					+"SET DIRECCION= ?, "
-					+"CAPACIDAD = ? "
+					+"SET DIRECCION= ?, CAPACIDAD = ? " 
 					+"WHERE CODIGOTALLER = ? ");
 			
 			codigoTaller = InputTypes.readInt(scanner, "Ingrese el codigo del taller a actualizar: ");

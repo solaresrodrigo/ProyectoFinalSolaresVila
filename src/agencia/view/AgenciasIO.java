@@ -58,8 +58,7 @@ public class AgenciasIO {
 		
 		try {
 			conexion.consulta("UPDATE AGENCIA "
-					+ "SET DIRECCION = ?,"
-					+ "CIUDAD = ?"
+					+ "SET DIRECCION = ?, CIUDAD = ? "
 					+ "WHERE CODIGOAGENCIA=?");
 			codigoAgencia = InputTypes.readInt(scanner, "Ingrese el codigo de la Agencia a actualizar: ");
 			
