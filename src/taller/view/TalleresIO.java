@@ -22,7 +22,7 @@ public class TalleresIO {
 		Taller taller = TallerIO.ingresar(scanner);
 
 		try {
-			conexion.consulta("INSERT INTO TALLER(DIRECCION, CAPACIDAD) "
+			conexion.consulta("INSERT INTO TALLERES(DIRECCION, CAPACIDAD) "
 					+"VALUES(?,?) " );
 
 			conexion.getSentencia().setString(1, taller.getDireccion());

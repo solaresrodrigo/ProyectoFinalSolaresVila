@@ -21,7 +21,7 @@ public class ClientesIO {
 		Cliente cliente = ClienteIO.ingresar(scanner);
 
 		try {
-			conexion.consulta("INSERT INTO CLIENTE(NROCONTACTO, CI, DIRECCION)"
+			conexion.consulta("INSERT INTO CLIENTES(NROCONTACTO, CI, DIRECCION)"
 					+ "VALUES(?,?,?)" );
 
 			conexion.getSentencia().setInt(1,cliente.getNroContacto());
@@ -29,7 +29,6 @@ public class ClientesIO {
 			conexion.getSentencia().setString(3,cliente.getDireccion());
 
 			conexion.modificacion();
-			conexion.close();
 		} catch(SQLException e) {
 			e.printStackTrace();
 		} catch(Throwable e) {
@@ -43,7 +42,7 @@ public class ClientesIO {
 		codigoCliente = InputTypes.readInt(scanner, "Ingrese el codigo del Cliente que desea eliminar: ");
 
 		try {
-			conexion.consulta("DETELE FROM CLIENTE "
+			conexion.consulta("DETELE FROM CLIENTES "
 					+"WHERE CODIGOCLIENTE = ?" );
 
 			conexion.getSentencia().setInt(1, codigoCliente);
@@ -62,7 +61,7 @@ public class ClientesIO {
 		Cliente cliente = ClienteIO.ingresar(scanner);
 		int codigoCliente;
 		try {
-			conexion.consulta("UPDATE CLIENTE "
+			conexion.consulta("UPDATE CLIENTES "
 					+"SET NROCONTACTO= ?, "
 					+"CI = ?,"
 					+ "DIRECCION = ?"
@@ -86,7 +85,7 @@ public class ClientesIO {
 		ResultSet resultado;
 		
 		try {
-			conexion.consulta("SELECT * FROM ADMINISTRATIVO ");
+			conexion.consulta("SELECT * FROM CLIENTES ");
 
 			resultado = conexion.resultado();
 

@@ -22,7 +22,7 @@ public class MecanicosIO {
 		Mecanico mecanico = MecanicoIO.ingresar(scanner);
 
 		try {
-			conexion.consulta("INSERT INTO ADMINISTRATIVO(CODIGOTALLER, CI, NROCONTACTO) "
+			conexion.consulta("INSERT INTO MECANICOS(CODIGOTALLER, CI, NROCONTACTO) "
 					+"VALUES(?,?,?) " );
 
 			conexion.getSentencia().setInt(1, mecanico.getCodigoTaller());
@@ -43,7 +43,7 @@ public class MecanicosIO {
 		int codigoMecanico= InputTypes.readInt(scanner, "Ingrese el codigo del Mecanico que desea eliminar: ");
 
 		try {
-			conexion.consulta("DETELE FROM MECANICO "
+			conexion.consulta("DETELE FROM MECANICOS "
 					+"WHERE CODIGOMECANICO = ?" );
 
 			conexion.getSentencia().setInt(1, codigoMecanico);
@@ -62,7 +62,7 @@ public class MecanicosIO {
 		Mecanico mecanico = MecanicoIO.ingresar(scanner);
 		int codigoMecanico;
 		try {
-			conexion.consulta("UPDATE MECANICO "
+			conexion.consulta("UPDATE MECANICOS "
 					+"SET CODIGOTALLER= ?, "
 					+"CI = ?,"
 					+ "NROCONTACTO = ?"
@@ -87,7 +87,7 @@ public class MecanicosIO {
 		ResultSet resultado;
 		codigoTaller = InputTypes.readInt(scanner, "Ingrese el codigo del taller: ");
 		try {
-			conexion.consulta("SELECT * FROM MECANICO "
+			conexion.consulta("SELECT * FROM MECANICOS "
 					+"WHERE CODIGOTALLER = ?" );
 
 			conexion.getSentencia().setInt(1, codigoTaller);

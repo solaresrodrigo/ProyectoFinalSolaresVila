@@ -22,15 +22,15 @@ public class AutosIO {
 		Auto auto = AutoIO.ingresar(scanner);
 
 		try {
-			conexion.consulta("INSERT INTO AUTOS(TIPO,CAPACIDAD,MODELO,ESTADO,PRECIO,PLACA "
+			conexion.consulta("INSERT INTO AUTOS(tipo, capacidad, modelo, estado, precio, placa) "
 					+"VALUES(?,?,?,?,?,?) " );
 
-			conexion.getSentencia().setInt(1, auto.getPlaca());
-			conexion.getSentencia().setString(2, auto.getTipo());
-			conexion.getSentencia().setInt(3, auto.getCapacidad());
-			conexion.getSentencia().setInt(4, auto.getModelo());
-			conexion.getSentencia().setString(5, "No alquilado");
-			conexion.getSentencia().setInt(6, auto.getPrecio());
+			conexion.getSentencia().setString(1, auto.getTipo());
+			conexion.getSentencia().setInt(2, auto.getCapacidad());
+			conexion.getSentencia().setInt(3, auto.getModelo());
+			conexion.getSentencia().setString(4, "No alquilado");
+			conexion.getSentencia().setInt(5, auto.getPrecio());
+			conexion.getSentencia().setInt(6, auto.getPlaca());
 
 
 			conexion.modificacion();
