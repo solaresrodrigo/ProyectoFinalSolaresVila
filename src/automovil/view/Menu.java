@@ -15,7 +15,8 @@ public class Menu {
 			System.out.println("2. Listar Autos");
 			System.out.println("3. Eliminar auto");
 			System.out.println("4. Actualizar auto");
-			System.out.println("5. Salir.");
+			System.out.println("5. Actualizar el estado del automovil.");
+			System.out.println("0. Salir.");
 			System.out.println();
 			
 			opcion=InputTypes.readInt(scanner, "Ingrese su opcion: ");
@@ -75,6 +76,10 @@ public class Menu {
 			case 4:
 				autosView.actualizar();
 				break;
+			case 5:
+				autosView.rentar();
+				break;
+			
 			}
 		}
 	}

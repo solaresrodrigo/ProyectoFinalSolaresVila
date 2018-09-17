@@ -29,7 +29,7 @@ public class AutosIO {
 			conexion.getSentencia().setString(2, auto.getTipo());
 			conexion.getSentencia().setInt(3, auto.getCapacidad());
 			conexion.getSentencia().setInt(4, auto.getModelo());
-			conexion.getSentencia().setString(5, auto.getEstado());
+			conexion.getSentencia().setString(5, "No alquilado");
 			conexion.getSentencia().setInt(6, auto.getPrecio());
 
 
@@ -99,7 +99,28 @@ public class AutosIO {
 		}
 	}
 
+	
+	public void rentar() {
+		String estado;
+		int codigoAuto;
+		estado = InputTypes.readString(scanner, "Ingrese el estado del autom[ovil: ");
+		codigoAuto = InputTypes.readInt(scanner, "Ingrese el codigo del automovil: ");
+		try {
+			conexion.consulta("UPDATE AUTOS "
+					+"SET ESTADO= ?, "
+					+"WHERE CODIGOAUTO = ? ");
+			
+			conexion.getSentencia().setString(1, estado);
+			conexion.getSentencia().setInt(2, codigoAuto);
 
+			conexion.modificacion();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public void listar() {
 		ResultSet resultado;
 		try {
