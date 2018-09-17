@@ -122,21 +122,17 @@ public class AutosIO {
 			conexion.consulta("SELECT * FROM AUTOS ");
 
 			resultado = conexion.resultado();
-
+			System.out.println("Codigo\tTipo\tCapacidad\tModelo\tEstado\tPrecio\tPlaca");
 			while(resultado.next()) {
-				System.out.print(resultado.getInt("CODIGOAUTO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.print(resultado.getString("TIPO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("CAPACIDAD"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("MODELO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getString("ESTADO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("PRECIO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("PLACA"));
+				int codigoAuto = resultado.getInt("CODIGOAUTO");
+				String tipo = resultado.getString("TIPO");
+				int capacidad=resultado.getInt("CAPACIDAD");
+				int modelo = resultado.getInt("MODELO");
+				String estado = resultado.getString("ESTADO");
+				int precio = resultado.getInt("PRECIO");
+				int placa = resultado.getInt("PLACA");
+				System.out.println(codigoAuto + "\t"+ tipo +"\t"+capacidad +"\t" +modelo+"\t"+estado+"\t"+precio+"\t"+placa);
+				
 			}
 			resultado.close();
 
