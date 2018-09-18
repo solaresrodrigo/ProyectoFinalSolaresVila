@@ -1,16 +1,16 @@
 package renta.entity;
 
-import java.sql.Date;
+import java.util.Calendar;
 
 public class Renta {
 	
 	private int codigoCliente;
 	private int codigoAgencia;
 	private int codigoAuto;
-	private Date fechaInicio;
-	private Date fechaFin;
+	private Calendar fechaInicio;
+	private Calendar fechaFin;
 	
-	public Renta(int codigoCliente, int codigoAgencia, int codigoAuto, Date fechaInicio, Date fechaFin) {
+	public Renta(int codigoCliente, int codigoAgencia, int codigoAuto, Calendar fechaInicio, Calendar fechaFin) {
 		this.codigoCliente = codigoCliente;
 		this.codigoAgencia = codigoAgencia;
 		this.codigoAuto = codigoAuto;
@@ -42,24 +42,19 @@ public class Renta {
 		this.codigoAuto = codigoAuto;
 	}
 
-	public Date getFechaInicio() {
+	public Calendar getFechaInicio() {
 		return fechaInicio;
 	}
 
-	public void setFechaInicio(Date fechaInicio) {
+	public void setFechaInicio(Calendar fechaInicio) {
 		this.fechaInicio = fechaInicio;
 	}
 
-	public Date getFechaFin() {
+	public Calendar getFechaFin() {
 		return fechaFin;
 	}
 
-	public void setFechaFin(Date fechaFin) {
+	public void setFechaFin(Calendar fechaFin) {
 		this.fechaFin = fechaFin;
 	}
-	
-	
-	
-	
-
 }

@@ -90,7 +90,6 @@ public class ServiciosIO {
 			conexion.consulta("SELECT * FROM SERVICIOS ");
 
 			resultado = conexion.resultado();
-			System.out.println("Codigo Taller\tCodigo Mecanico\tCI\tnro Contacto");
 			System.out.println("Codigo Servicio\tPrecio\tTipo");
 
 			while(resultado.next()) {

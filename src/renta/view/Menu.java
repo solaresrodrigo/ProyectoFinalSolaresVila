@@ -21,7 +21,7 @@ public class Menu {
 			
 			opcion=InputTypes.readInt(scanner, "Ingrese su opcion: ");
 			
-			if(opcion >= 0 && opcion<= 5) {
+			if(opcion >= 0 && opcion<= 6) {
 				return opcion;
 			}
 		}
@@ -66,6 +66,9 @@ public class Menu {
 				break;
 			case 5:
 				rentasView.calcularMonto();
+				break;
+			case 6:
+				rentasView.anadirServicio();
 				break;
 			}
 			

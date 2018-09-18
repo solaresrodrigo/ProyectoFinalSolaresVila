@@ -155,21 +155,16 @@ public class AutosIO {
 
 			conexion.getSentencia().setInt(1, codigoAuto);
 			resultado = conexion.resultado();
-
+			System.out.println("Codigo\tTipo\tCapacidad\tModelo\tEstado\tPrecio\tPlaca");
 			while(resultado.next()) {
-				System.out.print(resultado.getInt("CODIGOAUTO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.print(resultado.getString("TIPO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("CAPACIDAD"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("MODELO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getString("ESTADO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("PRECIO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("PLACA"));
+				codigoAuto = resultado.getInt("CODIGOAUTO");
+				String tipo = resultado.getString("TIPO");
+				int capacidad=resultado.getInt("CAPACIDAD");
+				int modelo = resultado.getInt("MODELO");
+				String estado = resultado.getString("ESTADO");
+				int precio = resultado.getInt("PRECIO");
+				int placa = resultado.getInt("PLACA");
+				System.out.println(codigoAuto + "\t"+ tipo +"\t"+capacidad +"\t" +modelo+"\t"+estado+"\t"+precio+"\t"+placa);
 			}
 			resultado.close();
 			
@@ -192,21 +187,17 @@ public class AutosIO {
 
 			conexion.getSentencia().setString(1, tipo);
 			resultado = conexion.resultado();
+			System.out.println("Codigo\tTipo\tCapacidad\tModelo\tEstado\tPrecio\tPlaca");
 
 			while(resultado.next()) {
-				System.out.print(resultado.getInt("CODIGOAUTO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.print(resultado.getString("TIPO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("CAPACIDAD"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("MODELO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getString("ESTADO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("PRECIO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("PLACA"));
+				int codigoAuto = resultado.getInt("CODIGOAUTO");
+				tipo = resultado.getString("TIPO");
+				int capacidad=resultado.getInt("CAPACIDAD");
+				int modelo = resultado.getInt("MODELO");
+				String estado = resultado.getString("ESTADO");
+				int precio = resultado.getInt("PRECIO");
+				int placa = resultado.getInt("PLACA");
+				System.out.println(codigoAuto + "\t"+ tipo +"\t"+capacidad +"\t" +modelo+"\t"+estado+"\t"+precio+"\t"+placa);
 			}
 			resultado.close();
 			
@@ -230,21 +221,17 @@ public class AutosIO {
 
 			conexion.getSentencia().setInt(1, capacidad);
 			resultado = conexion.resultado();
+			System.out.println("Codigo\tTipo\tCapacidad\tModelo\tEstado\tPrecio\tPlaca");
 
 			while(resultado.next()) {
-				System.out.print(resultado.getInt("CODIGOAUTO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.print(resultado.getString("TIPO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("CAPACIDAD"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("MODELO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getString("ESTADO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("PRECIO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("PLACA"));
+				int codigoAuto = resultado.getInt("CODIGOAUTO");
+				String tipo = resultado.getString("TIPO");
+				capacidad=resultado.getInt("CAPACIDAD");
+				int modelo = resultado.getInt("MODELO");
+				String estado = resultado.getString("ESTADO");
+				int precio = resultado.getInt("PRECIO");
+				int placa = resultado.getInt("PLACA");
+				System.out.println(codigoAuto + "\t"+ tipo +"\t"+capacidad +"\t" +modelo+"\t"+estado+"\t"+precio+"\t"+placa);
 			}
 			resultado.close();
 			
@@ -267,21 +254,17 @@ public class AutosIO {
 
 			conexion.getSentencia().setInt(1, modelo);
 			resultado = conexion.resultado();
+			System.out.println("Codigo\tTipo\tCapacidad\tModelo\tEstado\tPrecio\tPlaca");
 
 			while(resultado.next()) {
-				System.out.print(resultado.getInt("CODIGOAUTO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.print(resultado.getString("TIPO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("CAPACIDAD"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("MODELO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getString("ESTADO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("PRECIO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("PLACA"));
+				int codigoAuto = resultado.getInt("CODIGOAUTO");
+				String tipo = resultado.getString("TIPO");
+				int capacidad=resultado.getInt("CAPACIDAD");
+				modelo = resultado.getInt("MODELO");
+				String estado = resultado.getString("ESTADO");
+				int precio = resultado.getInt("PRECIO");
+				int placa = resultado.getInt("PLACA");
+				System.out.println(codigoAuto + "\t"+ tipo +"\t"+capacidad +"\t" +modelo+"\t"+estado+"\t"+precio+"\t"+placa);
 			}
 			resultado.close();
 			
@@ -304,21 +287,17 @@ public class AutosIO {
 
 			conexion.getSentencia().setString(1, estado);
 			resultado = conexion.resultado();
+			System.out.println("Codigo\tTipo\tCapacidad\tModelo\tEstado\tPrecio\tPlaca");
 
 			while(resultado.next()) {
-				System.out.print(resultado.getInt("CODIGOAUTO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.print(resultado.getString("TIPO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("CAPACIDAD"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("MODELO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getString("ESTADO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("PRECIO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("PLACA"));
+				int codigoAuto = resultado.getInt("CODIGOAUTO");
+				String tipo = resultado.getString("TIPO");
+				int capacidad=resultado.getInt("CAPACIDAD");
+				int modelo = resultado.getInt("MODELO");
+				estado = resultado.getString("ESTADO");
+				int precio = resultado.getInt("PRECIO");
+				int placa = resultado.getInt("PLACA");
+				System.out.println(codigoAuto + "\t"+ tipo +"\t"+capacidad +"\t" +modelo+"\t"+estado+"\t"+precio+"\t"+placa);
 			}
 			resultado.close();
 			
@@ -341,21 +320,17 @@ public class AutosIO {
 
 			conexion.getSentencia().setInt(1, precio);
 			resultado = conexion.resultado();
+			System.out.println("Codigo\tTipo\tCapacidad\tModelo\tEstado\tPrecio\tPlaca");
 
 			while(resultado.next()) {
-				System.out.print(resultado.getInt("CODIGOAUTO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.print(resultado.getString("TIPO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("CAPACIDAD"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("MODELO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getString("ESTADO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("PRECIO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("PLACA"));
+				int codigoAuto = resultado.getInt("CODIGOAUTO");
+				String tipo = resultado.getString("TIPO");
+				int capacidad=resultado.getInt("CAPACIDAD");
+				int modelo = resultado.getInt("MODELO");
+				String estado = resultado.getString("ESTADO");
+				precio = resultado.getInt("PRECIO");
+				int placa = resultado.getInt("PLACA");
+				System.out.println(codigoAuto + "\t"+ tipo +"\t"+capacidad +"\t" +modelo+"\t"+estado+"\t"+precio+"\t"+placa);
 			}
 			resultado.close();
 			

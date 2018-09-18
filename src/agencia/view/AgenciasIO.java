@@ -21,14 +21,13 @@ public class AgenciasIO {
 		Agencia agencia = AgenciaIO.ingresar(scanner);
 		
 		try {
-			conexion.consulta("INSERT INTO AGENCIA(DIRECCION, CIUDAD)"
+			conexion.consulta("INSERT INTO AGENCIAS(DIRECCION, CIUDAD)"
 					+ "VALUES(?,?)" );
 			
 			conexion.getSentencia().setString(1,agencia.getDireccion());
 			conexion.getSentencia().setString(2,agencia.getCiudad());
 			
 			conexion.modificacion();
-			conexion.close();
 		} catch(SQLException e) {
 			e.printStackTrace();
 		} catch(Throwable e) {
@@ -40,7 +39,7 @@ public class AgenciasIO {
 		int codigoAgencia = InputTypes.readInt(scanner, "Ingrese el codigo de la Agencia que desea eliminar: ");
 		
 		try {
-			conexion.consulta("DELETE FROM AGENCIA "
+			conexion.consulta("DELETE FROM AGENCIAS "
 					+ "WHERE CODIGOAGENCIA = ?");
 			conexion.getSentencia().setInt(1, codigoAgencia);
 			
@@ -57,7 +56,7 @@ public class AgenciasIO {
 		int codigoAgencia;
 		
 		try {
-			conexion.consulta("UPDATE AGENCIA "
+			conexion.consulta("UPDATE AGENCIAS "
 					+ "SET DIRECCION = ?, CIUDAD = ? "
 					+ "WHERE CODIGOAGENCIA=?");
 			codigoAgencia = InputTypes.readInt(scanner, "Ingrese el codigo de la Agencia a actualizar: ");
@@ -76,17 +75,14 @@ public class AgenciasIO {
 	
 	
 	public void listar() {
-		String ciudad=InputTypes.readString(scanner, "Ingrese la ciudad de la que desea saber las agencias existentes: ");
 		ResultSet resultado;
 		
 		try {
-			conexion.consulta("SELECT * FROM AGENCIAS "
-					+ "WHERE CIUDAD = ? ");
-			conexion.getSentencia().setString(1, ciudad);
+			conexion.consulta("SELECT * FROM AGENCIAS " );
 			resultado = conexion.resultado();
-			System.out.println("Ciudad\tCodigo Agencia\tdireccion");
+			System.out.println("Ciudad\t\tCodigo Agencia\t\tdireccion");
 			while(resultado.next()) {
-				
+				String ciudad = resultado.getString("CIUDAD");
 				int codigoAgencia = resultado.getInt("CODIGOAGENCIA");
 				String direccion = resultado.getString("DIRECCION");
 				System.out.println(ciudad + "\t\t"+ codigoAgencia +"\t\t"+direccion);

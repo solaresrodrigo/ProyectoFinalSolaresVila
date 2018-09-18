@@ -9,6 +9,7 @@ import control.Conexion;
 import detalle.entity.Detalle;
 import detalle.view.DetalleIO;
 import renta.entity.Renta;
+import servicio.view.ServiciosIO;
 import view.InputTypes;
 
 public class RentasIO {
@@ -32,12 +33,18 @@ public class RentasIO {
 			conexion.getSentencia().setInt(1, renta.getCodigoCliente());
 			conexion.getSentencia().setInt(2, renta.getCodigoAgencia());
 			conexion.getSentencia().setInt(3, renta.getCodigoAuto());
-			conexion.getSentencia().setDate(4, renta.getFechaInicio());
-			conexion.getSentencia().setDate(5, renta.getFechaFin());
+			conexion.getSentencia().setDate(4, new java.sql.Date(renta.getFechaInicio().getTimeInMillis()));
+			conexion.getSentencia().setDate(5, new java.sql.Date(renta.getFechaFin().getTimeInMillis()));
+
+
+			conexion.modificacion();
+			System.out.println("Su codigo de renta: "+ ultimoCodigoRenta());
+			anadirServicio();
 
 			while(servicio) {
 				System.out.println("1. Anadir servicio.");
-				System.out.println("0. Finalizar registro de Renta.");
+				System.out.println("0. Finalizar.");
+
 				opcion = InputTypes.readInt(scanner, "Ingrese su opcion deseada: ");
 				if(opcion >= 0 && opcion<= 1){
 					switch(opcion) {
@@ -45,17 +52,12 @@ public class RentasIO {
 						servicio = false;
 						break;
 					case 1:
-						conexion.consulta("INSERT INTO DETALLES(CODIGORENTA, CODIGOSERVICIO) "
-								+"VALUES(?,?) " );
-
-						Detalle detalle = DetalleIO.ingresar(scanner);
-
-						conexion.getSentencia().setInt(1, detalle.getCodigoRenta());
-						conexion.getSentencia().setInt(2, detalle.getCodigoServicio());
+						System.out.println("Su codigo de renta: "+ ultimoCodigoRenta());
+						anadirServicio();
+						break;
 					}
 				}
 			}
-			conexion.modificacion();
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -65,6 +67,53 @@ public class RentasIO {
 			e.printStackTrace();
 		}
 	}
+
+
+	public int ultimoCodigoRenta() {
+		int codigoRenta=0;
+		ResultSet resultado;
+		try {
+			conexion.consulta("SELECT R.CODIGORENTA FROM RENTAS R ORDER BY R.CODIGORENTA DESC LIMIT 1 ");
+
+			resultado = conexion.resultado();
+			
+			while(resultado.next()) {
+				codigoRenta = resultado.getInt("CODIGORENTA");
+			}		
+			resultado.close();
+		} catch (SQLException e){
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return codigoRenta;
+	}
+
+	public void anadirServicio() {
+		try {
+			ServiciosIO servicios = new ServiciosIO(conexion, scanner);
+			servicios.listar();
+			conexion.consulta("INSERT INTO DETALLES(CODIGOSERVICIO, CODIGORENTA) "
+					+"VALUES(?,?) " );
+			
+			Detalle detalle = DetalleIO.ingresar(scanner);
+
+			conexion.getSentencia().setInt(1, detalle.getCodigoServicio());
+			conexion.getSentencia().setInt(2, detalle.getCodigoRenta());
+
+			conexion.modificacion();
+		}
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 
 	public void eliminar() {
 
@@ -94,7 +143,7 @@ public class RentasIO {
 		int codigoRenta;
 		try {
 			conexion.consulta("UPDATE RENTAS "
-					+"SET CODIGOCLIENTE= ?, CODIGOAGENCIA = ?, CODIGOAUTO = ? "
+					+"SET CODIGOCLIENTE= ?, CODIGOAGENCIA = ?, CODIGOAUTO = ?, FECHAINICIO = ?, FECHAFIN = ? "
 					+"WHERE CODIGORENTA = ? ");
 
 			codigoRenta = InputTypes.readInt(scanner, "Ingrese el codigo de la renta a actualizar: ");
@@ -102,8 +151,10 @@ public class RentasIO {
 			conexion.getSentencia().setInt(1, renta.getCodigoCliente());
 			conexion.getSentencia().setInt(2, renta.getCodigoAgencia());
 			conexion.getSentencia().setInt(3, renta.getCodigoAuto());
-			conexion.getSentencia().setInt(4, codigoRenta);
 
+			conexion.getSentencia().setDate(4, new java.sql.Date(renta.getFechaInicio().getTimeInMillis()));
+			conexion.getSentencia().setDate(5, new java.sql.Date(renta.getFechaFin().getTimeInMillis()));
+			conexion.getSentencia().setInt(6, codigoRenta);
 			conexion.modificacion();
 
 		} catch (SQLException e) {
@@ -112,7 +163,7 @@ public class RentasIO {
 		}
 	}
 
-	
+
 	public void listar() {
 		ResultSet resultado;
 		try {
@@ -127,7 +178,7 @@ public class RentasIO {
 				int codigoAuto = resultado.getInt("CODIGOAUTO");
 				Date Inicio = resultado.getDate("FECHAINICIO");
 				Date Fin = resultado.getDate("FECHAFIN");
-				
+
 				System.out.println(codigoRenta + "\t\t"+ codigoCliente +"\t\t"+codigoAgencia +"\t\t" +codigoAuto+"\t\t"+Inicio+"\t\t"+Fin);
 
 			}
@@ -161,7 +212,7 @@ public class RentasIO {
 				int codigoAuto = resultado.getInt("CODIGOAUTO");
 				Date Inicio = resultado.getDate("FECHAINICIO");
 				Date Fin = resultado.getDate("FECHAFIN");
-				
+
 				System.out.println(codigoRenta + "\t\t"+ codigoCliente +"\t\t"+codigoAgencia +"\t\t" +codigoAuto+"\t\t"+Inicio+"\t\t"+Fin);
 
 			}
@@ -175,7 +226,7 @@ public class RentasIO {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void listarPorCliente() {
 		int codigoCliente;
 		ResultSet resultado;
@@ -183,11 +234,11 @@ public class RentasIO {
 		try {
 			conexion.consulta("SELECT r.codigoRenta, c.codigoCliente, r.codigoAgencia, r.codigoAuto, r.fechaInicio, r.fechaFin FROM RENTAS r "
 					+ "INNER JOIN clientes c ON  r.codigoCliente = c.codigoCliente "
-					+"WHERE CODIGOCLIENTE = ?" );
+					+"WHERE R.CODIGOCLIENTE = ?" );
 
 			conexion.getSentencia().setInt(1, codigoCliente);
 			resultado = conexion.resultado();
-			System.out.println("Codigo Taller\tCodigo Mecanico\tCI\tnro Contacto");
+			System.out.println("Codigo Renta\tCodigo Cliente\tCodigo Automovil\tInicio\t\tFin");
 			while(resultado.next()) {
 				int codigoRenta = resultado.getInt("CODIGORENTA");
 				codigoCliente = resultado.getInt("CODIGOCLIENTE");
@@ -195,7 +246,7 @@ public class RentasIO {
 				int codigoAuto = resultado.getInt("CODIGOAUTO");
 				Date Inicio = resultado.getDate("FECHAINICIO");
 				Date Fin = resultado.getDate("FECHAFIN");
-				
+
 				System.out.println(codigoRenta + "\t\t"+ codigoCliente +"\t\t"+codigoAgencia +"\t\t" +codigoAuto+"\t\t"+Inicio+"\t\t"+Fin);
 
 			}
@@ -209,32 +260,36 @@ public class RentasIO {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
+
 
 	public void calcularMonto() {
 		int codigoRenta;
 		ResultSet resultado;
 		codigoRenta = InputTypes.readInt(scanner, "Ingrese el codigo de la renta a listar: ");
+
 		try {
-			conexion.consulta("SELECT R.CODIGORENTA, R.CODIGOCLIENTE, (SUM(S.PRECIO)+A.PRECIO*(DATEDIFF(R.FECHAFIN,R.FECHAINICIO))) AS MONTO "
+			conexion.consulta("SELECT R.CODIGORENTA, R.CODIGOCLIENTE, A.PRECIO AS PRECIODIA, (A.PRECIO*(DATEDIFF(R.FECHAFIN,R.FECHAINICIO))) AS PRECIO ,(SUM(S.PRECIO)+A.PRECIO*(DATEDIFF(R.FECHAFIN,R.FECHAINICIO))) AS MONTO "
 					+ "FROM CLIENTES C INNER JOIN RENTAS R "
 					+ "ON C.CODIGOCLIENTE = R.CODIGOCLIENTE "
 					+ "INNER JOIN AUTOS A ON R.CODIGOAUTO = A.CODIGOAUTO "
 					+ "INNER JOIN DETALLES D ON d.codigoRenta = R.CODIGORENTA "
 					+ "INNER JOIN SERVICIOS S ON S.CODIGOSERVICIO = D.CODIGOSERVICIO "
-					+"WHERE CODIGORENTA = ?" );
+					+"WHERE R.CODIGORENTA = ?" );
 
 			conexion.getSentencia().setInt(1, codigoRenta);
 			resultado = conexion.resultado();
+			System.out.println("Codigo Renta\tCodigo Cliente\tPrecioPorDia\tPrecio\t\tMonto");
 
 			while(resultado.next()) {
-				System.out.print(resultado.getInt("CODIGORENTA"));
-				System.out.println(resultado.getString("\t"));
-				System.out.print(resultado.getInt("CODIGOCLIENTE"));
-				System.out.println(resultado.getString("\t"));
-				System.out.print(resultado.getInt("MONTO"));
-				System.out.println(resultado.getString("\t"));
+
+				codigoRenta = resultado.getInt("CODIGORENTA");
+				int codigoCliente = resultado.getInt("CODIGOCLIENTE");
+				int precioDia = resultado.getInt("PRECIODIA");
+				int precio = resultado.getInt("PRECIO");
+				int monto = resultado.getInt("MONTO");
+
+				System.out.println(codigoRenta + "\t\t"+ codigoCliente +"\t\t"+precioDia+"\t\t"+precio+"\t\t"+monto);
 			}
 			resultado.close();
 
@@ -245,7 +300,7 @@ public class RentasIO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
 }

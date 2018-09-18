@@ -1,6 +1,7 @@
 package view;
 
 import java.sql.Date;
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class InputTypes {
@@ -48,18 +49,20 @@ public class InputTypes {
 		return texto;	
 	}
 
+	@SuppressWarnings("deprecation")
 	public static Date readDate(Scanner scanner, String msg) {
-		Date fecha=null;
+		
 		int year, month, date;
-
+		Date fecha=null;
 		while(true) {
+			
 			try {
 				System.out.print(msg);
 				year=scanner.nextInt();
-				month=scanner.nextInt();
-				date=scanner.nextInt();
 				fecha.setYear(year);
+				month=scanner.nextInt();
 				fecha.setMonth(month);
+				date=scanner.nextInt();
 				fecha.setDate(date);
 				break;
 			}
@@ -71,6 +74,32 @@ public class InputTypes {
 		}
 		return fecha;
 		
+	}
+	
+public static Calendar readCalendar(Scanner scanner, String msg) {
+		
+		int year, month, date;
+		Calendar fecha = Calendar.getInstance();
+		fecha.clear();
+		while(true) {
+			
+			try {
+				System.out.print(msg);
+				year=scanner.nextInt();
+				month=scanner.nextInt();
+				date=scanner.nextInt();
+				fecha.set(Calendar.YEAR, year);
+				fecha.set(Calendar.MONTH, month-1);
+				fecha.set(Calendar.DATE, date);
+				break;
+			}
+			catch(java.util.InputMismatchException e) {
+				System.out.print("El valor debe ser un numero entero.");
+				scanner.nextLine();
+			}
+
+		}
+		return fecha;
 	}
 
 }
