@@ -24,7 +24,7 @@ public class Menu {
 
 			opcion = InputTypes.readInt(scanner, "Ingrese la opcion deseada: ");
 
-			if(opcion>=0 && opcion<=5) {
+			if(opcion>=0 && opcion<=8) {
 				return opcion;
 			}
 		}

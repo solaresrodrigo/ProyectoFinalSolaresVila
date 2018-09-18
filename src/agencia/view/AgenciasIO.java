@@ -80,18 +80,17 @@ public class AgenciasIO {
 		ResultSet resultado;
 		
 		try {
-			conexion.consulta("SELECT * FROM AGENCIA "
+			conexion.consulta("SELECT * FROM AGENCIAS "
 					+ "WHERE CIUDAD = ? ");
 			conexion.getSentencia().setString(1, ciudad);
 			resultado = conexion.resultado();
-			
+			System.out.println("Ciudad\tCodigo Agencia\tdireccion");
 			while(resultado.next()) {
-				System.out.println(resultado.getString("CIUDAD"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("CODIGO AGENCIA"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getString("DIRECION"));
-				System.out.println(resultado.getString("\t"));
+				
+				int codigoAgencia = resultado.getInt("CODIGOAGENCIA");
+				String direccion = resultado.getString("DIRECCION");
+				System.out.println(ciudad + "\t\t"+ codigoAgencia +"\t\t"+direccion);
+				
 			}
 			resultado.close();
 		}catch (SQLException e) {

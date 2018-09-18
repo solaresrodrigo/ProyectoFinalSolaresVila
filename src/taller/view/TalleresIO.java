@@ -85,23 +85,21 @@ public class TalleresIO {
 	}
 	
 	public void listar() {
-		int codigoTaller;
 		ResultSet resultado;
-		codigoTaller = InputTypes.readInt(scanner, "Ingrese el codigo del taller a listar: ");
 		try {
-			conexion.consulta("SELECT * FROM TALLERES "
-					+"WHERE CODIGOTALLER = ?" );
+			conexion.consulta("SELECT * FROM TALLERES ");
 
-			conexion.getSentencia().setInt(1, codigoTaller);
 			resultado = conexion.resultado();
+			System.out.println("Codigo Taller\tDireccion\tCapacidad");
 
 			while(resultado.next()) {
-				System.out.print(resultado.getInt("CODIGOTALLER"));
-				System.out.println(resultado.getString("\t"));
-				System.out.print(resultado.getString("DIRECCION"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("CAPACIDAD"));
-				System.out.println(resultado.getString("\t"));
+				
+				int codigoTaller = resultado.getInt("CODIGOTALLER");
+				String direccion = resultado.getString("DIRECCION");
+				int capacidad = resultado.getInt("CAPACIDAD");
+				
+				System.out.println(codigoTaller + "\t\t"+ direccion +"\t\t"+capacidad);
+				
 			}
 			resultado.close();
 			

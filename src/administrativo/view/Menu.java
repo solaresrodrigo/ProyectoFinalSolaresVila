@@ -41,10 +41,10 @@ public class Menu {
 				adminView.listar();
 				break;
 			case 3:
-				adminView.eliminar();;
+				adminView.eliminar();
 				break;
 			case 4:
-				adminView.actualizar();;
+				adminView.actualizar();
 				break;
 			}
 			

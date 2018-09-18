@@ -1,5 +1,6 @@
 package renta.view;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -118,20 +119,17 @@ public class RentasIO {
 			conexion.consulta("SELECT * FROM RENTAS ");
 
 			resultado = conexion.resultado();
-
+			System.out.println("Codigo Renta\tCodigo Cliente\tCodigo Agencia\tCodigo Auto\tInicio\t\tFin");
 			while(resultado.next()) {
-				System.out.print(resultado.getInt("CODIGORENTA"));
-				System.out.println(resultado.getString("\t"));
-				System.out.print(resultado.getInt("CODIGOCLIENTE"));
-				System.out.println(resultado.getString("\t"));
-				System.out.print(resultado.getInt("CODIGOAGENCIA"));
-				System.out.println(resultado.getString("\t"));
-				System.out.print(resultado.getInt("CODIGOAUTO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getString("FECHAINICIO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getString("FECHAFIN"));
-				System.out.println(resultado.getString("\t"));
+				int codigoRenta = resultado.getInt("CODIGORENTA");
+				int codigoCliente = resultado.getInt("CODIGOCLIENTE");
+				int codigoAgencia = resultado.getInt("CODIGOAGENCIA");
+				int codigoAuto = resultado.getInt("CODIGOAUTO");
+				Date Inicio = resultado.getDate("FECHAINICIO");
+				Date Fin = resultado.getDate("FECHAFIN");
+				
+				System.out.println(codigoRenta + "\t\t"+ codigoCliente +"\t\t"+codigoAgencia +"\t\t" +codigoAuto+"\t\t"+Inicio+"\t\t"+Fin);
+
 			}
 			resultado.close();
 
@@ -154,18 +152,18 @@ public class RentasIO {
 
 			conexion.getSentencia().setInt(1, codigoRenta);
 			resultado = conexion.resultado();
+			System.out.println("Codigo Renta\tCodigo Cliente\tCodigo Agencia\tCodigo Auto\tInicio\t\tFin");
 
 			while(resultado.next()) {
-				System.out.print(resultado.getInt("CODIGOCLIENTE"));
-				System.out.println(resultado.getString("\t"));
-				System.out.print(resultado.getInt("CODIGOAGENCIA"));
-				System.out.println(resultado.getString("\t"));
-				System.out.print(resultado.getInt("CODIGOAUTO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getString("FECHAINICIO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getString("FECHAFIN"));
-				System.out.println(resultado.getString("\t"));
+				codigoRenta = resultado.getInt("CODIGORENTA");
+				int codigoCliente = resultado.getInt("CODIGOCLIENTE");
+				int codigoAgencia = resultado.getInt("CODIGOAGENCIA");
+				int codigoAuto = resultado.getInt("CODIGOAUTO");
+				Date Inicio = resultado.getDate("FECHAINICIO");
+				Date Fin = resultado.getDate("FECHAFIN");
+				
+				System.out.println(codigoRenta + "\t\t"+ codigoCliente +"\t\t"+codigoAgencia +"\t\t" +codigoAuto+"\t\t"+Inicio+"\t\t"+Fin);
+
 			}
 			resultado.close();
 
@@ -183,26 +181,23 @@ public class RentasIO {
 		ResultSet resultado;
 		codigoCliente = InputTypes.readInt(scanner, "Ingrese el codigo del cliente a listar: ");
 		try {
-			conexion.consulta("SELECT r.codigoRenta, c.codigoCliente, r.codigoAgencia, r.codigoAuto, r.fechaInicio, r.fechaFin FROM RENTAS "
+			conexion.consulta("SELECT r.codigoRenta, c.codigoCliente, r.codigoAgencia, r.codigoAuto, r.fechaInicio, r.fechaFin FROM RENTAS r "
 					+ "INNER JOIN clientes c ON  r.codigoCliente = c.codigoCliente "
 					+"WHERE CODIGOCLIENTE = ?" );
 
 			conexion.getSentencia().setInt(1, codigoCliente);
 			resultado = conexion.resultado();
-
+			System.out.println("Codigo Taller\tCodigo Mecanico\tCI\tnro Contacto");
 			while(resultado.next()) {
-				System.out.print(resultado.getInt("CODIGORENTA"));
-				System.out.println(resultado.getString("\t"));
-				System.out.print(resultado.getInt("CODIGOCLIENTE"));
-				System.out.println(resultado.getString("\t"));
-				System.out.print(resultado.getInt("CODIGOAGENCIA"));
-				System.out.println(resultado.getString("\t"));
-				System.out.print(resultado.getInt("CODIGOAUTO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getString("FECHAINICIO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getString("FECHAFIN"));
-				System.out.println(resultado.getString("\t"));
+				int codigoRenta = resultado.getInt("CODIGORENTA");
+				codigoCliente = resultado.getInt("CODIGOCLIENTE");
+				int codigoAgencia = resultado.getInt("CODIGOAGENCIA");
+				int codigoAuto = resultado.getInt("CODIGOAUTO");
+				Date Inicio = resultado.getDate("FECHAINICIO");
+				Date Fin = resultado.getDate("FECHAFIN");
+				
+				System.out.println(codigoRenta + "\t\t"+ codigoCliente +"\t\t"+codigoAgencia +"\t\t" +codigoAuto+"\t\t"+Inicio+"\t\t"+Fin);
+
 			}
 			resultado.close();
 

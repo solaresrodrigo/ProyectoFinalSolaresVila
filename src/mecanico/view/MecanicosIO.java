@@ -81,25 +81,21 @@ public class MecanicosIO {
 	}
 	
 	public void listar() {
-		int codigoTaller;
 		ResultSet resultado;
-		codigoTaller = InputTypes.readInt(scanner, "Ingrese el codigo del taller: ");
 		try {
-			conexion.consulta("SELECT * FROM MECANICOS "
-					+"WHERE CODIGOTALLER = ?" );
+			conexion.consulta("SELECT * FROM MECANICOS ");
 
-			conexion.getSentencia().setInt(1, codigoTaller);
 			resultado = conexion.resultado();
-
+			System.out.println("Codigo Taller\tCodigo Mecanico\tCI\tnro Contacto");
 			while(resultado.next()) {
-				System.out.print(resultado.getInt("CODIGOTALLER"));
-				System.out.println(resultado.getString("\t"));
-				System.out.print(resultado.getInt("CODIGOMECANICO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.print(resultado.getInt("CI"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("NROCONTACTO"));
-				System.out.println(resultado.getString("\t"));
+				
+				int codigoTaller = resultado.getInt("CODIGOTALLER");
+				int codigoMecanico = resultado.getInt("CODIGOMECANICO");
+				int ci = resultado.getInt("CI");
+				int nroContacto = resultado.getInt("NROCONTACTO");
+				
+				System.out.println(codigoTaller + "\t\t"+ codigoMecanico +"\t\t"+ci +"\t\t" +nroContacto);
+
 			}
 			resultado.close();
 			

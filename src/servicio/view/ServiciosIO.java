@@ -85,23 +85,21 @@ public class ServiciosIO {
 	}
 	
 	public void listar() {
-		int codigoServicio;
 		ResultSet resultado;
-		codigoServicio = InputTypes.readInt(scanner, "Ingrese el codigo del servicio a listar: ");
 		try {
-			conexion.consulta("SELECT * FROM SERVICIOS "
-					+"WHERE CODIGOSERVICIO = ?" );
+			conexion.consulta("SELECT * FROM SERVICIOS ");
 
-			conexion.getSentencia().setInt(1, codigoServicio);
 			resultado = conexion.resultado();
+			System.out.println("Codigo Taller\tCodigo Mecanico\tCI\tnro Contacto");
+			System.out.println("Codigo Servicio\tPrecio\tTipo");
 
 			while(resultado.next()) {
-				System.out.print(resultado.getInt("CODIGOSERVICIO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.print(resultado.getInt("PRECIO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getString("TIPO"));
-				System.out.println(resultado.getString("\t"));
+				int codigoServicio = resultado.getInt("CODIGOSERVICIO");
+				int precio = resultado.getInt("PRECIO");
+				String tipo = resultado.getString("TIPO");
+				
+				System.out.println(codigoServicio + "\t\t"+ precio +"\t\t"+tipo);
+
 			}
 			resultado.close();
 			

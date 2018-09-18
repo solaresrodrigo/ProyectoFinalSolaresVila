@@ -91,16 +91,16 @@ public class AdministrativosIO {
 
 			conexion.getSentencia().setInt(1, codigoAgencia);
 			resultado = conexion.resultado();
+			System.out.println("CodigoAgencia\tCodigoAdministrativo\tCI\tNumero de contacto");
 
 			while(resultado.next()) {
-				System.out.print(resultado.getInt("CODIGOAGENCIA"));
-				System.out.println(resultado.getString("\t"));
-				System.out.print(resultado.getInt("CODIGOADIMINISTRATIVO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.print(resultado.getInt("CI"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getInt("NROCONTACTO"));
-				System.out.println(resultado.getString("\t"));
+				
+				codigoAgencia = resultado.getInt("CODIGOAGENCIA");
+				int codigoAdministrativo = resultado.getInt("CODIGOADMINISTRATIVO");
+				int ci=resultado.getInt("CI");
+				int nroContacto = resultado.getInt("NROCONTACTO");
+				System.out.println(codigoAgencia + "\t\t"+ codigoAdministrativo +"\t\t"+ci +"\t\t" +nroContacto);
+				
 			}
 			resultado.close();
 			

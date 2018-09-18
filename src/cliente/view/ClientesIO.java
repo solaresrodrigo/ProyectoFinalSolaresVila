@@ -86,16 +86,17 @@ public class ClientesIO {
 			conexion.consulta("SELECT * FROM CLIENTES ");
 
 			resultado = conexion.resultado();
+			System.out.println("Codigo Cliente\tNro Contacto\tCI\tDireccion");
 
 			while(resultado.next()) {
-				System.out.print(resultado.getInt("CODIGOCLIENTE"));
-				System.out.println(resultado.getString("\t"));
-				System.out.print(resultado.getInt("NROCONTACTO"));
-				System.out.println(resultado.getString("\t"));
-				System.out.print(resultado.getInt("CI"));
-				System.out.println(resultado.getString("\t"));
-				System.out.println(resultado.getString("DIRECCION"));
-				System.out.println(resultado.getString("\t"));
+				
+				int codigoCliente = resultado.getInt("CODIGOCLIENTE");
+				int nroContacto = resultado.getInt("NROCONTACTO");
+				int ci = resultado.getInt("CI");
+				String direccion = resultado.getString("DIRECCION");
+				
+				System.out.println(codigoCliente + "\t\t"+ nroContacto +"\t\t"+ci +"\t\t" +direccion);
+				
 			}
 			resultado.close();
 			
