@@ -70,7 +70,6 @@ public class InputTypes {
 				System.out.print("El valor debe ser un número entero.");
 				scanner.nextLine();
 			}
-
 		}
 		return fecha;
 		
